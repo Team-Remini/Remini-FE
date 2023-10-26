@@ -52,24 +52,68 @@ export const Sort: React.FC = () => {
       <div className="container">
         <div className="btn_box">
           <div>
-            <button onClick={() => handleButtonClick("KPT")}>KPT</button>
-            <button onClick={() => handleButtonClick("Continue")}>
+            <button
+              onClick={() => handleButtonClick("KPT")}
+              className={activeComponent === "KPT" ? "active" : ""}
+            >
+              KPT
+            </button>
+            <button
+              onClick={() => handleButtonClick("Continue")}
+              className={activeComponent === "Continue" ? "active" : ""}
+            >
               Continue-Stop-Start
             </button>
-            <button onClick={() => handleButtonClick("FiveF")}>5F</button>
-            <button onClick={() => handleButtonClick("TIL")}>TIL</button>
+            <button
+              onClick={() => handleButtonClick("FiveF")}
+              className={activeComponent === "FiveF" ? "active" : ""}
+            >
+              5F
+            </button>
+            <button
+              onClick={() => handleButtonClick("TIL")}
+              className={activeComponent === "TIL" ? "active" : ""}
+            >
+              TIL
+            </button>
           </div>
           <div>
-            <button onClick={() => handleButtonClick("FourL")}>4L</button>
-            <button onClick={() => handleButtonClick("ORID")}>ORID</button>
-            <button onClick={() => handleButtonClick("AAR")}>AAR</button>
-            <button onClick={() => handleButtonClick("YWT")}>YWT</button>
+            <button
+              onClick={() => handleButtonClick("FourL")}
+              className={activeComponent === "FourL" ? "active" : ""}
+            >
+              4L
+            </button>
+            <button
+              onClick={() => handleButtonClick("ORID")}
+              className={activeComponent === "ORID" ? "active" : ""}
+            >
+              ORID
+            </button>
+            <button
+              onClick={() => handleButtonClick("AAR")}
+              className={activeComponent === "AAR" ? "active" : ""}
+            >
+              AAR
+            </button>
+            <button
+              onClick={() => handleButtonClick("YWT")}
+              className={activeComponent === "YWT" ? "active" : ""}
+            >
+              YWT
+            </button>
           </div>
           <div>
-            <button onClick={() => handleButtonClick("Personal")}>
+            <button
+              onClick={() => handleButtonClick("Personal")}
+              className={activeComponent === "Personal" ? "active" : ""}
+            >
               개인적 회고
             </button>
-            <button onClick={() => handleButtonClick("Performance")}>
+            <button
+              onClick={() => handleButtonClick("Performance")}
+              className={activeComponent === "Performance" ? "active" : ""}
+            >
               성과/수치 중심 회고
             </button>
           </div>
@@ -104,6 +148,7 @@ const SortWrap = styled.div`
   }
 
   .container {
+    margin-top: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -129,8 +174,10 @@ const SortWrap = styled.div`
     font-weight: 600;
     line-height: normal;
   }
-
   button:hover {
+    background: var(--primary-400, #79cd96);
+  }
+  button.active {
     background: var(--primary-400, #79cd96);
   }
 `;

@@ -14,11 +14,18 @@ code {
 body {
   margin: 0;
   width: 100%;
-  min-width: 1080px;
+  min-width: 1300px;
   min-height: 100vh;
+
   font-family: "PretendardVariable", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+h2,
+h3,
+p {
+  margin: 0;
 }
 
 button {

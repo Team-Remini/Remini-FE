@@ -1,9 +1,9 @@
 import React from "react";
-import SortDetailWrap from "./SortDetailWrap";
+import RecommendSortWrap from "./RecommendSortWrap";
 
 export const YWT: React.FC = () => {
   return (
-    <SortDetailWrap>
+    <RecommendSortWrap>
       <h3 className="title">YWT 회고</h3>
       <div className="text_box">
         <p>YWT는 일본 도요타에서 사용한 방식으로 짧게 진행되는 회고예요.</p>
@@ -20,6 +20,6 @@ export const YWT: React.FC = () => {
           </p>
         </span>
       </div>
-    </SortDetailWrap>
+    </RecommendSortWrap>
   );
 };
