@@ -1,9 +1,9 @@
 import React from "react";
-import SortDetailWrap from "./SortDetailWrap";
+import RecommendSortWrap from "./RecommendSortWrap";
 
 export const FiveF: React.FC = () => {
   return (
-    <SortDetailWrap>
+    <RecommendSortWrap>
       <h3 className="title">5F 회고</h3>
       <div className="text_box">
         <p>
@@ -19,6 +19,6 @@ export const FiveF: React.FC = () => {
           <p>Feedback (향후 계획에 대한 피드백)</p>
         </span>
       </div>
-    </SortDetailWrap>
+    </RecommendSortWrap>
   );
 };

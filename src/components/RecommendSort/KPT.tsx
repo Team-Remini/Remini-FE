@@ -1,9 +1,9 @@
 import React from "react";
-import SortDetailWrap from "./SortDetailWrap";
+import RecommendSortWrap from "./RecommendSortWrap";
 
 export const KPT: React.FC = () => {
   return (
-    <SortDetailWrap>
+    <RecommendSortWrap>
       <h3 className="title">KPT 회고</h3>
       <div className="text_box">
         <p>KPT는 각각 Keep, Problem, Try의 약자입니다.</p>
@@ -28,6 +28,6 @@ export const KPT: React.FC = () => {
           정리해보면서 구체적인 실천 방안을 세울 수 있다는 장점이 있어요.
         </p>
       </div>
-    </SortDetailWrap>
+    </RecommendSortWrap>
   );
 };

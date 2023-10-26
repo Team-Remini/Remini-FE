@@ -9,10 +9,14 @@ import { Page2b } from "../components/Recommend/Page2b";
 import { Page2c } from "../components/Recommend/Page2c";
 import { Page3a } from "../components/Recommend/Page3a";
 import { Page3b } from "../components/Recommend/Page3b";
+import { useNavigate } from "react-router-dom";
 
+// 맞춤 회고 유형 추천 페이지
 export default function Recommend() {
   const [page, setPage] = useAtom(pageAtom);
   const [isChecked, setIsChecked] = useAtom(isCheckedAtoms);
+
+  const navigate = useNavigate();
 
   // 컴포넌트가 마운트될 때 isChecked 상태 초기화
   useEffect(() => {
@@ -29,13 +33,34 @@ export default function Recommend() {
     setPage("Page1");
   }, []);
 
-  // 중복 체크 방지
+  // 체크박스 : 중복 체크 방지 & 토글
   const preventDuplication = (checkboxIndex: number) => {
-    setIsChecked((it) => it.map((_, i) => i === checkboxIndex - 1));
+    setIsChecked((prevChecked) => {
+      const newChecked = [...prevChecked];
+      newChecked[checkboxIndex - 1] = !newChecked[checkboxIndex - 1];
+      return newChecked.map((a, i) => {
+        if (i !== checkboxIndex - 1) {
+          return false;
+        }
+        return a;
+      });
+    });
   };
 
-  // 다음 버튼 클릭 시 페이지 이동 처리
-  // setPage("") 이 부분은 다른 페이지 이동 처리 해야 됨
+  // 버튼의 텍스트를 동적으로 설정
+  const buttonText = () => {
+    if (["Page2a", "Page2b", "Page3a", "Page3b"].includes(page)) {
+      return "맞춤 회고 유형 확인하기";
+    }
+    return "다음";
+  };
+
+  // recRetro를 localStorage에 저장
+  const saveRecRetro = (recRetro: string[]) => {
+    localStorage.setItem("recRetro", JSON.stringify(recRetro));
+  };
+
+  // "다음" 버튼 클릭 시 페이지 이동 처리
   const nextPage = () => {
     switch (page) {
       case "Page1":
@@ -44,27 +69,34 @@ export default function Recommend() {
         else if (isChecked[2]) setPage("Page2c");
         break;
       case "Page2a":
-        if (isChecked[0]) setPage("");
-        else if (isChecked[1]) setPage("");
-        else if (isChecked[2]) setPage("");
+        if (isChecked[0]) saveRecRetro(["TIL", "YWT"]);
+        else if (isChecked[1]) saveRecRetro(["4L", "ORID"]);
+        else if (isChecked[2]) saveRecRetro(["KPT", "Continue-Stop-Start"]);
         break;
       case "Page2b":
-        if (isChecked[0]) setPage("");
-        else if (isChecked[1]) setPage("");
+        if (isChecked[0]) saveRecRetro(["성과/수치 중심 회고"]);
+        else if (isChecked[1])
+          saveRecRetro(["Personal Retrospective", "성과/수치 중심 회고"]);
         break;
       case "Page2c":
         if (isChecked[0]) setPage("Page3a");
         else if (isChecked[1]) setPage("Page3b");
         break;
       case "Page3a":
-        if (isChecked[0]) setPage("");
-        else if (isChecked[1]) setPage("");
+        if (isChecked[0]) saveRecRetro(["KPT", "4L"]);
+        else if (isChecked[1]) saveRecRetro(["5F", "Continue-Stop-Start"]);
         break;
       case "Page3b":
-        if (isChecked[0]) setPage("");
-        else if (isChecked[1]) setPage("");
+        if (isChecked[0]) saveRecRetro(["AAR", "YWT"]);
+        else if (isChecked[1]) saveRecRetro(["KPT", "성과/수치 중심 회고"]);
         break;
       default:
+        break;
+    }
+
+    // "맞춤 회고 유형 확인하기" 버튼을 눌렀을 때 다른 페이지로 이동
+    if (["Page2a", "Page2b", "Page3a", "Page3b"].includes(page)) {
+      navigate("/recommendResult");
     }
   };
 
@@ -88,7 +120,7 @@ export default function Recommend() {
           // 버튼 비활성화(모든 체크박스가 선택되지 않았거나 현재 페이지가 설정되지 않았을 때)
           disabled={!isChecked.some((isChecked) => isChecked) || !page}
         >
-          다음
+          {buttonText()}
         </button>
       </RecommendWrap>
     </div>
@@ -114,6 +146,7 @@ const RecommendWrap = styled.div`
     text-align: center;
     padding: 26px 0;
     box-sizing: border-box;
+    margin-top: 44px;
 
     color: var(--text-high-emphasis, rgba(255, 255, 255, 0.87));
     font-size: 32px;
@@ -123,11 +156,11 @@ const RecommendWrap = styled.div`
   }
 
   .next_btn {
-    width: 152px;
-    height: 53px;
     border: none;
     border-radius: 8px;
     background: var(--primary-800, #305d40);
+    padding: 16px 60px;
+    box-sizing: border-box;
 
     color: #000;
     text-align: center;

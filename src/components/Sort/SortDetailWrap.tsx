@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 
 // 회고 종류 컴포넌트 10개 동시에 적용되는 디자인

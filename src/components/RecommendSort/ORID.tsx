@@ -1,9 +1,9 @@
 import React from "react";
-import SortDetailWrap from "./SortDetailWrap";
+import RecommendSortWrap from "./RecommendSortWrap";
 
 export const ORID: React.FC = () => {
   return (
-    <SortDetailWrap>
+    <RecommendSortWrap>
       <h3 className="title">ORID 회고</h3>
       <div className="text_box">
         <p>
@@ -32,6 +32,6 @@ export const ORID: React.FC = () => {
           </p>
         </span>
       </div>
-    </SortDetailWrap>
+    </RecommendSortWrap>
   );
 };

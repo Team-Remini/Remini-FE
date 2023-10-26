@@ -14,11 +14,15 @@ export const Header: React.FC = () => {
     navigate("/");
   };
 
+  const goToSelectMethod = () => {
+    navigate("/selectMethod");
+  };
+
   return (
     <HeaderWrap>
       <img src={logoBlack} alt="logo" onClick={goToHome} />
       <div className="text-box font">
-        <p>회고하기</p>
+        <p onClick={goToSelectMethod}>회고하기</p>
         <p>둘러보기</p>
       </div>
       <div className="login font">

@@ -1,9 +1,9 @@
 import React from "react";
-import SortDetailWrap from "./SortDetailWrap";
+import RecommendSortWrap from "./RecommendSortWrap";
 
 export const AAR: React.FC = () => {
   return (
-    <SortDetailWrap>
+    <RecommendSortWrap>
       <h3 className="title">AAR 회고</h3>
       <div className="text_box">
         <p>
@@ -21,6 +21,6 @@ export const AAR: React.FC = () => {
           <p>목적 (지속, 개선 혹은 포기할 것들은 무엇인가?)</p>
         </span>
       </div>
-    </SortDetailWrap>
+    </RecommendSortWrap>
   );
 };

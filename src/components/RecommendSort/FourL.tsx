@@ -1,9 +1,9 @@
 import React from "react";
-import SortDetailWrap from "./SortDetailWrap";
+import RecommendSortWrap from "./RecommendSortWrap";
 
 export const FourL: React.FC = () => {
   return (
-    <SortDetailWrap>
+    <RecommendSortWrap>
       <h3 className="title">4L 회고</h3>
       <div className="text_box">
         <p>
@@ -18,6 +18,6 @@ export const FourL: React.FC = () => {
           <p>Longed for (바라는 것)</p>
         </span>
       </div>
-    </SortDetailWrap>
+    </RecommendSortWrap>
   );
 };

@@ -1,9 +1,9 @@
 import React from "react";
-import SortDetailWrap from "./SortDetailWrap";
+import RecommendSortWrap from "./RecommendSortWrap";
 
 export const TIL: React.FC = () => {
   return (
-    <SortDetailWrap>
+    <RecommendSortWrap>
       <h3 className="title">TIL 회고</h3>
       <div className="text_box">
         <p>
@@ -19,6 +19,6 @@ export const TIL: React.FC = () => {
           <p>배운 점 (학습 - 오늘의 일에서 나는 어떤 것을 배웠는지)</p>
         </span>
       </div>
-    </SortDetailWrap>
+    </RecommendSortWrap>
   );
 };
