@@ -1,22 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 
 export const Main: React.FC = () => {
   const navigate = useNavigate();
-  const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    // 🚨vercel 배포용 임시 추가 부분 나중에 지웁시다!🚨
-    const timer = setInterval(() => {
-      setCount((prevCount) => prevCount + 1);
-    }, 3000);
-
-    // 컴포넌트가 언마운트될 때 타이머를 정리합니다.
-    return () => {
-      clearInterval(timer);
-    };
-  }, []);
 
   const goToRecommend = () => {
     navigate("/recommend");
