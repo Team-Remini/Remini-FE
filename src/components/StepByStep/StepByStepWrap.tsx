@@ -1,81 +1,12 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import KPTStepOne from "../../../img/ProgressBar/KPTStepOne.png";
-import KPTCompo from "../../../components/StepByStepComponent/KPTCompo";
-import { EmptyFooter } from "../../../components/emptyFooter";
 
-//Step by Step KPT 회고 페이지 1
-export default function KPT1() {
-  const [content, setContent] = useState("");
-  const navigate = useNavigate();
-
-  const isContentFilled = content.trim().length > 0;
-
-  return (
-    <>
-      <KPTCompo />
-      <KPT1Wrap>
-        <div className="progressBar_container">
-          <img className="KPTStepOne" src={KPTStepOne} alt="progressBar" />
-        </div>
-        <div className="mainConten_container">
-          <div className="mainContent_Btn">Keep</div>
-          <div className="main_text_container">
-            <p>좋은 결과를 만들었고,</p>
-            <p>계속해서 유지해 나가야할 것을 작성해주세요.</p>
-          </div>
-          <textarea
-            className="mainContent_Input"
-            placeholder="텍스트를 입력해주세요"
-            value={content}
-            onChange={(e) => setContent(e.target.value)}
-          ></textarea>
-        </div>
-        <div className="KPT_btn_container">
-          <button
-            className="temporary_btn"
-            onClick={() => {
-              if (isContentFilled) {
-                navigate("/");
-              } else {
-                // 텍스트 내용이 비어있으면 아무 동작도 하지 않음
-              }
-            }}
-            disabled={!isContentFilled}
-          >
-            임시저장
-          </button>
-          <button
-            className="completed_btn"
-            onClick={() => {
-              if (isContentFilled) {
-                //다음 페이지로 이동
-                navigate("/nextpage");
-              } else {
-                // 텍스트 내용이 비어있으면 아무 동작도 하지 않음
-              }
-            }}
-            style={{
-              backgroundColor: isContentFilled ? "#79CD96" : " #305D40",
-            }}
-            disabled={!isContentFilled}
-          >
-            작성완료
-          </button>
-        </div>
-      </KPT1Wrap>
-      <EmptyFooter />
-    </>
-  );
-}
-
-const KPT1Wrap = styled.div`
+const StepByStepWrap = styled.div`
   background-color: #121212;
   padding: 0px 100px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
+  align-items: center;
 
   .progressBar_container {
     width: 100%;
@@ -85,10 +16,7 @@ const KPT1Wrap = styled.div`
     margin-top: 20px;
   }
 
-  .KPTStepOne {
-  }
-
-  .mainConten_container {
+  .mainContent_container {
     display: inline-flex;
     flex-direction: column;
     align-items: center;
@@ -182,4 +110,17 @@ const KPT1Wrap = styled.div`
     font-weight: 600;
     line-height: normal;
   }
+
+  .text_num {
+    color: var(--text-medium-emphasis, rgba(255, 255, 255, 0.6));
+    text-align: right;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+
+    margin-top: 8px;
+  }
 `;
+
+export default StepByStepWrap;

@@ -60,9 +60,8 @@ export default function SelectRetro() {
   const retroBtnClick = () => {
     localStorage.setItem("retroTitle", inputValue);
     localStorage.setItem("retroSort", activeComponent);
-    // navigate("/회고작성페이지");
-    //페이지 확인을 위해 KPT를 임시로 연결해두었습니다.
-    navigate("/selectRetro/KPT");
+    // 페이지 확인을 위해 KPT를 임시로 연결해두었습니다.
+    navigate("/stepByStepKPT");
   };
 
   return (
