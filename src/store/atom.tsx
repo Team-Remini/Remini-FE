@@ -3,5 +3,6 @@
 import { atom } from "jotai";
 
 export const pageAtom = atom("Page1"); // 현재 페이지를 저장하는 원자
+export const contentAtom = atom("");
 
 export const isCheckedAtoms = atom([false, false, false]); // 체크박스 상태를 저장하는 원자

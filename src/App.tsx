@@ -8,6 +8,7 @@ import ScrollToTop from "./ScrollToTop";
 import RecommendResult from "./pages/RecommendResult";
 import SelectMethod from "./pages/SelectMethod";
 import SelectRetro from "./pages/SelectRetro";
+import KPT1 from "./pages/StepByStep/KPT/KPT1";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/recommendResult" element={<RecommendResult />} />
           <Route path="/selectMethod" element={<SelectMethod />} />
           <Route path="/selectRetro" element={<SelectRetro />} />
+          <Route path="/selectRetro/KPT" element={<KPT1 />} />
         </Routes>
       </Router>
     </div>

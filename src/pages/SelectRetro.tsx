@@ -61,7 +61,8 @@ export default function SelectRetro() {
     localStorage.setItem("retroTitle", inputValue);
     localStorage.setItem("retroSort", activeComponent);
     // navigate("/회고작성페이지");
-    alert("🐷꿀꿀");
+    //페이지 확인을 위해 KPT를 임시로 연결해두었습니다.
+    navigate("/selectRetro/KPT");
   };
 
   return (
