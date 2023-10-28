@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Header } from "../../../components/Header";
 import WritingPageWrap from "../WritingPageWrap";
 import { useNavigate } from "react-router-dom";
