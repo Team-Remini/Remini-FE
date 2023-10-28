@@ -1,7 +1,7 @@
 import React from "react";
 import StepByStepWrap from "../StepByStepWrap";
 import KPTStepTwo from "../../../img/ProgressBar/KPTStepTwo.png";
-import WritingPageBtnWrap from "../WritingPageBtn";
+import WritingPageBtnWrap from "../../WritingPageBtn";
 
 //Step by Step KPT 회고 페이지 2
 interface KPT2Props {

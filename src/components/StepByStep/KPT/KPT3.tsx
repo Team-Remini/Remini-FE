@@ -1,7 +1,7 @@
 import React from "react";
 import StepByStepWrap from "../StepByStepWrap";
 import KPTStepThree from "../../../img/ProgressBar/KPTStepThree.png";
-import WritingPageBtnWrap from "../WritingPageBtn";
+import WritingPageBtnWrap from "../../WritingPageBtn";
 import { useNavigate } from "react-router-dom";
 
 //Step by Step KPT 회고 페이지 3

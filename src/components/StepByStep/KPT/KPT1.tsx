@@ -1,7 +1,7 @@
 import React from "react";
 import StepByStepWrap from "../StepByStepWrap";
 import KPTStepOne from "../../../img/ProgressBar/KPTStepOne.png";
-import WritingPageBtnWrap from "../WritingPageBtn";
+import WritingPageBtnWrap from "../../WritingPageBtn";
 
 //Step by Step KPT 회고 페이지 1
 interface KPT1Props {

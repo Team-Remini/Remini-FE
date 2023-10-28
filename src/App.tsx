@@ -10,6 +10,7 @@ import SelectMethod from "./pages/SelectMethod";
 import SelectRetro from "./pages/SelectRetro";
 import StepByStepKPT from "./pages/WritingPage/StepByStep/KPT";
 import CompleteWriting from "./pages/CompleteWriting";
+import GuideLineKPT from "./pages/WritingPage/GuideLine/KPT";
 
 function App() {
   return (
@@ -23,10 +24,8 @@ function App() {
           <Route path="/recommendResult" element={<RecommendResult />} />
           <Route path="/selectMethod" element={<SelectMethod />} />
           <Route path="/selectRetro" element={<SelectRetro />} />
-
           <Route path="/stepByStepKPT" element={<StepByStepKPT />} />
-
-          {/* <Route path="/guideLineKPT" element={<guideLineKPT />} /> */}
+          <Route path="/guideLineKPT" element={<GuideLineKPT />} />
 
           <Route path="completeWriting" element={<CompleteWriting />} />
         </Routes>
