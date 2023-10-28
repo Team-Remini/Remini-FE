@@ -23,7 +23,7 @@ export default function KPT3({
   const navigate = useNavigate();
 
   const goToCompleteWriting = () => {
-    navigate("/CompleteWriting");
+    navigate("/attachPicture");
   };
 
   const handleNext = () => {
