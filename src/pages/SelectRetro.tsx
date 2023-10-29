@@ -15,11 +15,12 @@ import { Personal } from "../components/RecommendSort/Personal";
 import { Performance } from "../components/RecommendSort/Performance";
 import { useNavigate } from "react-router-dom";
 
-// 회고 진행 방식 선택 페이지
+// 회고 제목/유형 선택
 export default function SelectRetro() {
   const navigate = useNavigate();
   const [activeComponent, setActiveComponent] = useState("");
   const [inputValue, setInputValue] = useState("");
+  const storedSelectMethod = localStorage.getItem("selectMethod");
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
@@ -58,10 +59,7 @@ export default function SelectRetro() {
   };
 
   const retroBtnClick = () => {
-    localStorage.setItem("retroTitle", inputValue);
-    localStorage.setItem("retroSort", activeComponent);
-    // 페이지 확인을 위해 KPT를 임시로 연결해두었습니다.
-    navigate("/stepByStepKPT");
+    navigate(`/${storedSelectMethod}${activeComponent}`);
   };
 
   return (

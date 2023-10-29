@@ -25,7 +25,7 @@ export default function SelectMethod() {
           <div className="select1">
             <button
               onClick={() => {
-                handleSelect("회고 유형 가이드라인");
+                handleSelect("guideLine");
                 goToSelectRetro();
               }}
             >
@@ -38,7 +38,7 @@ export default function SelectMethod() {
           <div className="select2">
             <button
               onClick={() => {
-                handleSelect("Step by Step");
+                handleSelect("stepByStep");
                 goToSelectRetro();
               }}
             >

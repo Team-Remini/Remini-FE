@@ -26,11 +26,16 @@ function App() {
           <Route path="/recommendResult" element={<RecommendResult />} />
           <Route path="/selectMethod" element={<SelectMethod />} />
           <Route path="/selectRetro" element={<SelectRetro />} />
+
+          {/* stepByStep */}
           <Route path="/stepByStepKPT" element={<StepByStepKPT />} />
+
+          {/* guideLine */}
           <Route path="/guideLineKPT" element={<GuideLineKPT />} />
           <Route path="/guideLineContinue" element={<GuideLineContiue />} />
-          <Route path="/completeWriting" element={<CompleteWriting />} />
+
           <Route path="/attachPicture" element={<AttachPicture />} />
+          <Route path="/completeWriting" element={<CompleteWriting />} />
         </Routes>
       </Router>
     </div>
