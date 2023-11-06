@@ -12,7 +12,8 @@ const WritingPageWrap = styled.div`
     display: inline-flex;
     align-items: center;
     gap: 30px;
-    margin: 80px 240px 40px 0px;
+    margin-top: 80px;
+    margin-bottom: 36px;
   }
   .title_main {
     color: var(--text-high-emphasis, rgba(255, 255, 255, 0.87));

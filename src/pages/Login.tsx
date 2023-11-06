@@ -42,7 +42,7 @@ const LoginWrap = styled.div`
     height: 62px;
     border: none;
     border-radius: 8px;
-    background: #fae100;
+    background: #fee500;
 
     color: #371d1e;
     font-size: 18px;

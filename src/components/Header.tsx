@@ -46,7 +46,7 @@ const HeaderWrap = styled.div`
     cursor: pointer;
   }
   .text-box {
-    width: 186px;
+    width: 194px; // 사파리 화면 깨짐 해결
     height: 21px;
     display: flex;
     gap: 60px;
