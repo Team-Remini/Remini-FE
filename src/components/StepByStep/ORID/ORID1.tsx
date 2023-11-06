@@ -52,7 +52,12 @@ export default function ORID1({
               className="mainContent_Input"
               placeholder="텍스트를 입력해주세요"
               value={inputContent}
-              onChange={(e) => setInputContent(e.target.value)}
+              onChange={(e) => {
+                const text = e.target.value; // 200자를 초과하는 입력 방지
+                if (text.length <= 200) {
+                  setInputContent(text);
+                }
+              }}
               style={{ resize: "none" }} // 사이즈 조절 방지
             ></textarea>
             <p className="text_num">{inputContent.length}/200</p>
