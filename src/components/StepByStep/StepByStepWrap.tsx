@@ -7,6 +7,7 @@ const StepByStepWrap = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-size: 400;
 
   .progressBar_container {
     width: 100%;
@@ -20,16 +21,13 @@ const StepByStepWrap = styled.div`
     display: inline-flex;
     flex-direction: column;
     align-items: center;
-    gap: 24px;
+    gap: 25px;
     margin-top: 53px;
   }
 
   .mainContent_Btn {
-    display: flex;
     width: 320px;
     padding: 16px 60px;
-    justify-content: center;
-    align-items: center;
     gap: 10px;
     border-radius: 16px;
     background: rgba(255, 255, 255, 0.1);
@@ -42,8 +40,6 @@ const StepByStepWrap = styled.div`
   }
 
   .main_text_container {
-    margin-top: 24px;
-    margin-bottom: 24px;
     text-align: center;
     font-size: 18px;
     font-style: normal;
@@ -51,7 +47,7 @@ const StepByStepWrap = styled.div`
     line-height: normal;
     color: var(--text-medium-emphasis, rgba(255, 255, 255, 0.6));
     font-style: normal;
-    font-weight: 700;
+
     line-height: normal;
   }
 
@@ -73,7 +69,7 @@ const StepByStepWrap = styled.div`
     line-height: normal;
   }
 
-  .KPT_btn_container {
+  .btn_container {
     text-align: center;
     margin-top: 92px;
     margin-bottom: 60px;

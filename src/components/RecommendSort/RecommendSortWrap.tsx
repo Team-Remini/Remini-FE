@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const RecommendSortWrap = styled.div`
   width: 490px;
-  height: 401px;
+  height: 420px;
   padding: 30px 24px 0px 24px;
   box-sizing: border-box;
   display: flex;

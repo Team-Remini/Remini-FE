@@ -15,13 +15,8 @@ export default function KPT() {
   const isContentFilled = inputContent.trim().length > 0;
 
   const handleComplete = () => {
-    if (currentStep === 1) {
-      setCurrentStep((prevStep) => prevStep + 1);
-      setInputContent("");
-    } else if (currentStep === 2) {
-      setCurrentStep((prevStep) => prevStep + 1);
-      setInputContent("");
-    }
+    setCurrentStep((prevStep) => prevStep + 1);
+    setInputContent("");
   };
 
   // currentStep이 변경될 때마다 스크롤을 위로 올리는 기능 추가

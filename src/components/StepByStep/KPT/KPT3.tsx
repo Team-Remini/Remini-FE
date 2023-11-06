@@ -1,6 +1,6 @@
 import React from "react";
 import StepByStepWrap from "../StepByStepWrap";
-import KPTStepThree from "../../../img/ProgressBar/KPTStepThree.png";
+import img3 from "../../../img/ProgressBar/KPT3.png";
 import WritingPageBtnWrap from "../../WritingPageBtn";
 import { useNavigate } from "react-router-dom";
 
@@ -37,20 +37,31 @@ export default function KPT3({
     <>
       <StepByStepWrap>
         <div className="progressBar_container">
-          <img className="KPTStepOne" src={KPTStepThree} alt="progressBar" />
+          <img src={img3} alt="progressBar" />
         </div>
         <div className="mainContent_container">
           <div className="mainContent_Btn">Try</div>
           <div className="main_text_container">
             <p>문제를 파악하고,</p>
-            <p>이를 해결하기 위한 구체적인 개선방안을 작성해주세요.</p>
+            <p>
+              이를{" "}
+              <span style={{ fontWeight: 700 }}>
+                해결하기 위한 구체적인 개선방안
+              </span>
+              을 작성해주세요.
+            </p>
           </div>
           <div>
             <textarea
               className="mainContent_Input"
               placeholder="텍스트를 입력해주세요"
               value={inputContent}
-              onChange={(e) => setInputContent(e.target.value)}
+              onChange={(e) => {
+                const text = e.target.value; // 200자를 초과하는 입력 방지
+                if (text.length <= 200) {
+                  setInputContent(text);
+                }
+              }}
               style={{ resize: "none" }} // 사이즈 조절 방지
             ></textarea>
             <p className="text_num">{inputContent.length}/200</p>

@@ -1,6 +1,6 @@
 import React from "react";
 import StepByStepWrap from "../StepByStepWrap";
-import KPTStepOne from "../../../img/ProgressBar/KPTStepOne.png";
+import img1 from "../../../img/ProgressBar/KPT1.png";
 import WritingPageBtnWrap from "../../WritingPageBtn";
 
 //Step by Step KPT 회고 페이지 1
@@ -34,20 +34,30 @@ export default function KPT1({
     <>
       <StepByStepWrap>
         <div className="progressBar_container">
-          <img className="KPTStepOne" src={KPTStepOne} alt="progressBar" />
+          <img src={img1} alt="progressBar" />
         </div>
         <div className="mainContent_container">
           <div className="mainContent_Btn">Keep</div>
           <div className="main_text_container">
             <p>좋은 결과를 만들었고,</p>
-            <p>계속해서 유지해 나가야할 것을 작성해주세요.</p>
+            <p>
+              <span style={{ fontWeight: 700 }}>
+                계속해서 유지해 나가야할 것
+              </span>
+              을 작성해주세요.
+            </p>
           </div>
           <div>
             <textarea
               className="mainContent_Input"
               placeholder="텍스트를 입력해주세요"
               value={inputContent}
-              onChange={(e) => setInputContent(e.target.value)}
+              onChange={(e) => {
+                const text = e.target.value; // 200자를 초과하는 입력 방지
+                if (text.length <= 200) {
+                  setInputContent(text);
+                }
+              }}
               style={{ resize: "none" }} // 사이즈 조절 방지
             ></textarea>
             <p className="text_num">{inputContent.length}/200</p>
