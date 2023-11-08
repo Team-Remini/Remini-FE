@@ -8,30 +8,52 @@ import WritingPageBtnWrap from "../components/WritingPageBtn";
 
 export default function AttachPicture() {
   const navigate = useNavigate();
-
-  const [pictureContent, setPictureContent] = useState("");
+  const [pictureFile, setPictureFile] = useState<File | null>(null);
 
   const goToCompleteWriting = () => {
     navigate("/completeWriting");
   };
+
+  //드래그 된 요소가 위에 있을 때 발생
+  const onDragOver = (e: React.DragEvent<HTMLDivElement>) => {
+    e.preventDefault();
+  };
+
+  //드래그된 요소를 놓을 때 발생
+  const onDrop = (e: React.DragEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    const files = e.dataTransfer.files;
+    if (files.length > 0) {
+      setPictureFile(files[0]);
+    }
+  };
+
   return (
     <>
       <Header />
       <AttachPictureWrap>
         <div className="titleText">
-          <p>첨부하고 싶은 사진을 선택해주세요</p>
+          <p>첨부하고 싶은 사진이 있다면 넣어주세요</p>
         </div>
-        <div className="picture_container">
-          <p className="picture_input_text">파일을 여기로 드래그 해주세요</p>
+        <div
+          className="picture_container"
+          onDragOver={onDragOver}
+          onDrop={onDrop}
+        >
+          {pictureFile ? (
+            <p className="picture_input_text">{pictureFile.name}</p>
+          ) : (
+            <p className="picture_input_text">파일을 여기로 드래그 해주세요</p>
+          )}
         </div>
         <WritingPageBtnWrap>
           <button className="temporary_btn">첨부 안 함</button>
           <button
             className="completed_btn"
             style={{
-              backgroundColor: pictureContent ? "#79CD96" : " #305D40",
+              backgroundColor: pictureFile ? "#79CD96" : " #305D40",
             }}
-            disabled={!setPictureContent}
+            disabled={!pictureFile}
             onClick={() => {
               goToCompleteWriting();
             }}
