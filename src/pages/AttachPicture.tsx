@@ -4,7 +4,7 @@ import { Header } from "../components/Header";
 import { useNavigate } from "react-router-dom";
 import WritingPageBtnWrap from "../components/WritingPageBtn";
 
-//회고 작성완료 후 사진 첨부 페이지
+//회고 작성완료 후 사진 첨부 페이지 - 백엔드와 연결 필요
 
 export default function AttachPicture() {
   const navigate = useNavigate();
