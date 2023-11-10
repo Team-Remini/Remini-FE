@@ -5,12 +5,22 @@ import { Footer } from "../components/Footer";
 
 // 로그인/회원가입 페이지
 export default function Login() {
+  const REST_API_KEY = "4d9aacde53f8f2b4edd1d27d4ddf98e9";
+  const REDIRECT_URI = "https://remini.vercel.app";
+  const link = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`;
+
+  const loginHandler = () => {
+    window.location.href = link;
+  };
+
   return (
     <div>
       <Header />
       <LoginWrap>
         <h3 className="login_text">로그인</h3>
-        <button className="kakao">카카오 계정으로 계속하기</button>
+        <button onClick={loginHandler} className="kakao">
+          카카오 계정으로 계속하기
+        </button>
       </LoginWrap>
       <Footer />
     </div>

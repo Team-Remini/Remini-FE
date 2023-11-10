@@ -55,6 +55,7 @@ function App() {
           <Route path="/guideLineKPT" element={<GuideLineKPT />} />
           <Route path="/guideLineContinue" element={<GuideLineContiue />} />
 
+          {/* writingAfter */}
           <Route path="/attachPicture" element={<AttachPicture />} />
           <Route path="/completeWriting" element={<CompleteWriting />} />
         </Routes>
