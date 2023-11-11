@@ -1,4 +1,4 @@
-name: git push into another repo to deploy to vercel
+name: Deploy to Vercel
 
 on:
   push:
@@ -9,12 +9,17 @@ jobs:
     runs-on: ubuntu-latest
     container: pandoc/latex
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v2
       - name: Install mustache (to update the date)
         run: apk add ruby && gem install mustache
-      - name: creates output
+      - name: Create output
         run: sh ./build.sh
-      - name: Pushes to another repository
+      - name: Use Node.js 16
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - name: Push to Another Repository
         id: push_directory
         uses: cpina/github-action-push-to-another-repository@main
         env:
@@ -27,4 +32,4 @@ jobs:
           commit-message: ${{ github.event.commits[0].message }}
           target-branch: main
       - name: Test get variable exported by push-to-another-repository
-        run: echo $DESTINATION_CLONED_DIRECTORY
+        run: echo ${{ steps.push_directory.outputs.DESTINATION_CLONED_DIRECTORY }}
