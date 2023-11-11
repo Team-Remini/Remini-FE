@@ -2,4 +2,4 @@
 cd ../
 mkdir output
 cp -R ./Remini-FE/* ./output
-cp -R ./output ./remini/
+cp -R ./output ./Remini-FE/
