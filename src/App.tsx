@@ -1,7 +1,7 @@
 import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Home } from "./pages/Home";
-import Login from "./pages/Login";
+import Login from "./pages/login/Login";
 import Recommend from "./pages/Recommend";
 import React from "react";
 import ScrollToTop from "./ScrollToTop";
