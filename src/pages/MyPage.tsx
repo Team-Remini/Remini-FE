@@ -3,9 +3,41 @@ import styled from "styled-components";
 import { Header } from "../components/Header.tsx";
 import { Footer } from "../components/Footer";
 import { RetroBox } from "../components/RetroBox.tsx";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import LogoutModal from "../components/Modal/LogoutModal.tsx";
+import WithdrawalModal from "../components/Modal/WithdrawalModal.tsx";
 
 // 마이페이지
 export const MyPage: React.FC = () => {
+  const navigate = useNavigate();
+  const [isLogoutModalOpen, setIsLogoutModalOpen] = useState(false);
+  const [isWithdrawalModalOpen, setIsWithdrawalModalOpen] = useState(false);
+
+  const openLogoutModal = () => {
+    setIsLogoutModalOpen(true);
+  };
+
+  const closeLogoutModal = () => {
+    setIsLogoutModalOpen(false);
+  };
+
+  const openWithdrawalModal = () => {
+    setIsWithdrawalModalOpen(true);
+  };
+
+  const closeWithdrawalModal = () => {
+    setIsWithdrawalModalOpen(false);
+  };
+
+  const goToMyRetro = () => {
+    navigate("/myRetro");
+  };
+
+  const goToTempStorage = () => {
+    navigate("/tempStorage");
+  };
+
   return (
     <>
       <Header />
@@ -27,7 +59,9 @@ export const MyPage: React.FC = () => {
         <div className="retro">
           <div className="retro_text">
             <h3>나의 회고</h3>
-            <p className="pointer">전체보기 {`>`}</p>
+            <p className="pointer" onClick={goToMyRetro}>
+              전체보기 {`>`}
+            </p>
           </div>
           <div className="retro_container">
             <RetroBox />
@@ -38,7 +72,9 @@ export const MyPage: React.FC = () => {
         <div className="retro">
           <div className="retro_text">
             <h3>임시저장</h3>
-            <p className="pointer">전체보기 {`>`}</p>
+            <p className="pointer" onClick={goToTempStorage}>
+              전체보기 {`>`}
+            </p>
           </div>
           <div className="retro_container">
             <RetroBox />
@@ -47,11 +83,19 @@ export const MyPage: React.FC = () => {
           </div>
         </div>
         <div className="footer_btn">
-          <p className="logout pointer">로그아웃</p>
-          <p className="delete_account pointer">탈퇴하기</p>
+          <p className="logout pointer" onClick={openLogoutModal}>
+            로그아웃
+          </p>
+          <p className="delete_account pointer" onClick={openWithdrawalModal}>
+            탈퇴하기
+          </p>
         </div>
       </MyPageWrap>
       <Footer />
+      {isLogoutModalOpen && <LogoutModal closeModal={closeLogoutModal} />}
+      {isWithdrawalModalOpen && (
+        <WithdrawalModal closeModal={closeWithdrawalModal} />
+      )}
     </>
   );
 };
