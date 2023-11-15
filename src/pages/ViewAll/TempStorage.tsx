@@ -10,24 +10,23 @@ export const TempStorage: React.FC = () => {
   return (
     <>
       <Header />
-
       <ViewAllWrap>
         <h1>임시저장</h1>
         <div className="retro_container">
           <div className="retro_line">
-            <RetroBox />
-            <RetroBox />
-            <RetroBox />
+            <RetroBox hideLikes />
+            <RetroBox hideLikes />
+            <RetroBox hideLikes />
           </div>
           <div className="retro_line">
-            <RetroBox />
-            <RetroBox />
-            <RetroBox />
+            <RetroBox hideLikes />
+            <RetroBox hideLikes />
+            <RetroBox hideLikes />
           </div>
           <div className="retro_line">
-            <RetroBox />
-            <RetroBox />
-            <RetroBox />
+            <RetroBox hideLikes />
+            <RetroBox hideLikes />
+            <RetroBox hideLikes />
           </div>
         </div>
         {/* 페이지네이션 : API 연동하면서 구현 예정입니다 */}
