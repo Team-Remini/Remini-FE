@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import styled from "styled-components";
 import { Header } from "../../components/Header";
 import { Footer } from "../../components/Footer";
+import { useRouter } from "next/router";
 import axios from "axios";
 
 // 로그인/회원가입 페이지

@@ -6,6 +6,8 @@ import CompleteImg from "../img/UI/CompleteRectangleImagepng.png";
 // 페이지 처음 렌더링시 GET 요청(회고 조회)
 // isMine == true -> 공유|삭제|수정 버튼
 // isMine == false -> 기획 논의 필요
+
+//로그인 연결 했으니 호다닥 해볼게요 여기! 💨
 function CompleteWriting() {
   return (
     <>
@@ -95,10 +97,13 @@ const CompleteWritingWrap = styled.div`
   }
   .completeButtom-contaner {
     width: 1280px;
-    height: 1338px;
+    display: inline-flex;
+    justify-content: center;
     flex-direction: row;
   }
   .shareBtn {
+    width: 92dp;
+    height: 45dp;
     display: inline-flex;
     padding: 13px 32px;
     justify-content: center;
@@ -110,9 +115,11 @@ const CompleteWritingWrap = styled.div`
     font-size: 16px;
     font-style: normal;
     font-weight: 600;
-    line-height: normal;
+    margin-left: 30dp;
   }
   .deleteBtn {
+    width: 92dp;
+    height: 45dp;
     display: inline-flex;
     padding: 13px 32px;
     justify-content: center;
@@ -124,10 +131,10 @@ const CompleteWritingWrap = styled.div`
     font-size: 16px;
     font-style: normal;
     font-weight: 600;
-    line-height: normal;
-    margin-left: 30dp;
   }
   .editBtn {
+    width: 92dp;
+    height: 45dp;
     display: inline-flex;
     padding: 13px 32px;
     justify-content: center;
@@ -139,7 +146,5 @@ const CompleteWritingWrap = styled.div`
     font-size: 16px;
     font-style: normal;
     font-weight: 600;
-    line-height: normal;
-    margin-left: 30dp;
   }
 `;
