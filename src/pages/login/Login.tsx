@@ -1,47 +1,18 @@
-import React, { Fragment, useState, useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
 import { Header } from "../../components/Header";
 import { Footer } from "../../components/Footer";
-import { useRouter } from "next/router";
-import axios from "axios";
 
 // 로그인/회원가입 페이지
 export default function Login() {
   const REST_API_KEY = "4d9aacde53f8f2b4edd1d27d4ddf98e9";
-  const REDIRECT_URI = "http://localhost:8080";
+  const REDIRECT_URI = "http://localhost:3000/callback";
+
   const kakaoOAuthLink = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`;
 
   const loginHandler = () => {
     window.location.href = kakaoOAuthLink;
   };
-
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  const handleLogin = async () => {
-    try {
-      const urlParams = new URLSearchParams(window.location.search);
-      const code = urlParams.get("code");
-      console.log(code);
-
-      if (code) {
-        const tokenResponse = await axios.post(
-          `https://kauth.kakao.com/oauth/token?grant_type=authorization_code&client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&code=${code}`
-        );
-        const access_token = tokenResponse.data.access_token;
-
-        // 로그인 성공 시, 로그인된 상태로 표시
-        setIsLoggedIn(true);
-
-        // Store the access token in a safer place like HTTPOnly cookies or in the backend
-      }
-    } catch (error) {
-      console.error("Login failed:", error);
-    }
-  };
-
-  useEffect(() => {
-    handleLogin();
-  }, []);
 
   return (
     <div>
@@ -52,11 +23,6 @@ export default function Login() {
           카카오 계정으로 계속하기
         </button>
       </LoginWrap>
-      {isLoggedIn ? (
-        <div>
-          <h3>로그인 성공</h3>
-        </div>
-      ) : null}
       <Footer />
     </div>
   );
