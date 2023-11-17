@@ -6,10 +6,6 @@ import { Footer } from "../../components/Footer";
 // 로그인/회원가입 페이지
 export default function Login() {
   const REST_API_KEY = "4d9aacde53f8f2b4edd1d27d4ddf98e9";
-  const REDIRECT_URI = "https://remini.vercel.app/callback";
-  // 로컬 개발할 때는 http://localhost:3000/callback 잠깐 바꿔서 개발하다가
-  // PR 올릴 때는 : https://remini.vercel.app/callback로 다시 교체하면 될 것 같습니다👍
-
   const kakaoOAuthLink = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`;
 
   const loginHandler = () => {
