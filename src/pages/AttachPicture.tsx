@@ -1,22 +1,27 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import styled from "styled-components";
-import { Header } from "../components/Header";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { Header } from "../components/Header";
 import WritingPageBtnWrap from "../components/WritingPageBtn";
 
-//회고 작성완료 후 사진 첨부 페이지 - 백엔드와 연결 필요
-
+//회고 작성완료 후 사진 첨부 페이지
 export default function AttachPicture() {
   const navigate = useNavigate();
   const [pictureFile, setPictureFile] = useState<File | null>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
-  //드래그 된 요소가 위에 있을 때 발생
+  const defaultImage = "/src/img/UI/basicImage.png";
+
+  const goToCompleteWriting = (useDefaultImage = false) => {
+    const imageToSend = useDefaultImage ? defaultImage : pictureFile;
+    navigate("/completeWriting", { state: { image: imageToSend } });
+  };
+
   const onDragOver = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
   };
 
-  //드래그된 요소를 놓을 때 발생
   const onDrop = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
     const files = e.dataTransfer.files;
@@ -25,8 +30,19 @@ export default function AttachPicture() {
     }
   };
 
+  const handleFileSelect = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (event.target.files && event.target.files.length > 0) {
+      const file = event.target.files[0];
+      setPictureFile(file);
+    }
+  };
+
+  const triggerFileInput = () => {
+    fileInputRef.current?.click();
+  };
+
   // 회고 생성
-  const goToCompleteWriting = async () => {
+  const createRetro = async () => {
     const accessToken = localStorage.getItem("accessToken");
     const storedSectionTexts = localStorage.getItem("sectionTexts");
     const sectionTexts = storedSectionTexts
@@ -56,7 +72,6 @@ export default function AttachPicture() {
       navigate("/completeWriting");
     } catch (error) {
       console.error("요청 실패:", error);
-      // 실패 처리 로직 추가
     }
   };
 
@@ -72,25 +87,42 @@ export default function AttachPicture() {
           onDragOver={onDragOver}
           onDrop={onDrop}
         >
+          <button className="picture-select" onClick={triggerFileInput}>
+            <div className="select-text">파일 선택</div>
+          </button>
           {pictureFile ? (
             <p className="picture_input_text">{pictureFile.name}</p>
           ) : (
-            <p className="picture_input_text">파일을 여기로 드래그 해주세요</p>
+            <p className="picture_input_text">
+              또는 파일을 여기로 드래그 해주세요
+            </p>
           )}
         </div>
         <WritingPageBtnWrap>
           <button
+            className="temporary_btn"
+            onClick={() => goToCompleteWriting(true)}
+          >
+            첨부 안 함
+          </button>
+          <button
             className="completed_btn"
             style={{
-              backgroundColor: "#79CD96",
+              backgroundColor: pictureFile ? "#79CD96" : "#305D40",
             }}
-            onClick={() => {
-              goToCompleteWriting();
-            }}
+            // disabled={!pictureFile}
+            // onClick={() => goToCompleteWriting()}
+            onClick={createRetro} // 일단 회고 생성으로 대체
           >
             회고 완료
           </button>
         </WritingPageBtnWrap>
+        <input
+          type="file"
+          ref={fileInputRef}
+          style={{ display: "none" }}
+          onChange={handleFileSelect}
+        />
       </AttachPictureWrap>
     </>
   );
@@ -126,8 +158,30 @@ const AttachPictureWrap = styled.div`
     border: 2px dashed var(--text-medium-emphasis, rgba(255, 255, 255, 0.6));
   }
 
+  .picture-select {
+    display: inline-flex;
+    padding: 7px 16px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    margin-top: 107px;
+    margin-left: 176px;
+  }
+
+  .select-text {
+    color: var(--text-high-emphasis, rgba(255, 255, 255, 0.87));
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+
   .picture_input_text {
-    margin-top: 129px;
+    margin-top: 26px;
     margin-bottom: 130px;
     color: #fff;
     text-align: center;

@@ -1,59 +1,28 @@
-import React from "react";
-import { Header } from "../components/Header";
+import React, { useState } from "react";
+import { Header } from "../../components/Header";
 import styled from "styled-components";
-import CompleteImg from "../img/UI/basicImage.png";
-import BasicProfile from "../img/UI/basicProfile.png";
-//import FiveFContent from "../components/GuideLine/FiveFContent";
-//import FourContent from "../components/GuideLine/FourContent";
-//import PersonalContent from "../components/GuideLine/PersonalContent";
-//import ThreeContent from "../components/GuideLine/ThreeContent";
+import CompleteImg from "../../img/UI/basicImage.png";
+import BasicProfile from "../../img/UI/basicProfile.png";
+import GuideLineTheeContent from "../../components/GuideLine/ThreeContent";
 
-// 페이지 처음 렌더링시 GET 요청(회고 조회)
-// isMine == true -> 공유|삭제|수정 버튼
-// isMine == false -> 기획 논의 필요
-
-//임시로, 우선 css 불러오는 것은 해결 한 것 같네요! , api 연결 후 아래 써주기 {renderContent()}
-
-/*interface RetrospectiveData {
-  type: string;
-  title: string;
-  content: string;
-}
-
-interface CompleteWritingProps {
-  retrospectiveData: RetrospectiveData;
-}
-*/
-function CompleteWriting() {
-  // 회고 유형에 따라 적절한 디자인 템플릿을 렌더링
-  /*const renderContent = () => {
-    switch (retrospectiveData.type) {
-      case "type1":
-        return <FiveFContent />;
-      case "type2":
-        return <FourContent />;
-      case "type3":
-        return <PersonalContent />;
-      case "type4":
-        return <ThreeContent />;
-      default:
-        return <div>알 수 없는 회고 유형</div>;
-    }
-    */
+function CompleteWritingKPT() {
+  const [firstContent, setFirstContent] = useState("");
+  const [secondContent, setSecondContent] = useState("");
+  const [thirdContent, setThirdContent] = useState("");
 
   return (
     <>
       <CompleteWritingWrap>
         <Header />
         <div className="title_container">
-          <div className="title_content">Title</div>
+          <div className="title_content">KPT 회고</div>
         </div>
         <div className="content-container">
           <div className="WritingKind_container">
-            <div className="WritingKind_title">회고 종류</div>
+            <div className="WritingKind_title">Continue-Stop-Start 회고</div>
             <div className="WritingKind_content">
-              어떤 회고 있가요?어떤 회고 있가요?어떤 회고 있가요?어떤 회고
-              있가요?
+              회고 3가지 관점에서 업무를 돌아보고, 다음 액션 아이템을 도출해내는
+              데 도움이 되는 회고예요
             </div>
             <div className="userInfo-container">
               <div className="user-info">
@@ -67,7 +36,63 @@ function CompleteWriting() {
             <img src={CompleteImg} alt="CompleteImg" className="CompleteImg" />
           </div>
         </div>
-        <div className="mainContent-container"></div>
+        <div className="mainContent-container">
+          <GuideLineTheeContent>
+            <div className="AllmainConten_container">
+              <div className="leftContent_container">
+                <div className="mainContent_Btn">Keep</div>
+                <div className="maintext_container">
+                  <p>좋은 결과를 만들었고,</p>
+                  <p>계속해서 유지해 나가야할 것을 작성해주세요.</p>
+                </div>
+                <div>
+                  <textarea
+                    className="mainContent_Input"
+                    placeholder="텍스트를 입력해주세요"
+                    value={firstContent}
+                    onChange={(e) => setFirstContent(e.target.value)}
+                    style={{ resize: "none" }} // 사이즈 조절 방지
+                  ></textarea>
+                  <p className="text_num">{firstContent.length}/200</p>
+                </div>
+              </div>
+              <div className="middleContent_container">
+                <div className="mainContent_Btn">Problem</div>
+                <div className="maintext_container">
+                  <p>아쉬운 결과를 만들었고,</p>
+                  <p>앞으로 개선되어야 할 것</p>
+                </div>
+                <div>
+                  <textarea
+                    className="mainContent_Input"
+                    placeholder="텍스트를 입력해주세요"
+                    value={secondContent}
+                    onChange={(e) => setSecondContent(e.target.value)}
+                    style={{ resize: "none" }} // 사이즈 조절 방지
+                  ></textarea>
+                  <p className="text_num">{secondContent.length}/200</p>
+                </div>
+              </div>
+              <div className="rightContent_container">
+                <div className="mainContent_Btn">Try</div>
+                <div className="maintext_container">
+                  <p>문제를 파악하고,</p>
+                  <p>이를 해결하기 위한 구체적인 개선방안</p>
+                </div>
+                <div>
+                  <textarea
+                    className="mainContent_Input"
+                    placeholder="텍스트를 입력해주세요"
+                    value={thirdContent}
+                    onChange={(e) => setThirdContent(e.target.value)}
+                    style={{ resize: "none" }} // 사이즈 조절 방지
+                  ></textarea>
+                  <p className="text_num">{thirdContent.length}/200</p>
+                </div>
+              </div>
+            </div>
+          </GuideLineTheeContent>
+        </div>
         <div className="completeButtom-contaner">
           <button className="shareBtn">공유</button>
           <button className="deleteBtn">삭제</button>
@@ -78,7 +103,7 @@ function CompleteWriting() {
   );
 }
 
-export default CompleteWriting;
+export default CompleteWritingKPT;
 
 const CompleteWritingWrap = styled.div`
   background: var(--Background, #121212);
@@ -137,7 +162,11 @@ const CompleteWritingWrap = styled.div`
     font-size: 18px;
     font-style: normal;
     font-weight: 600;
-    line-height: normal;
+    line-height: 1.5;
+    max-width: 800px;
+    text-align: justify;
+    margin: auto;
+    padding: 20px;
   }
 
   .Image_container {
@@ -145,7 +174,7 @@ const CompleteWritingWrap = styled.div`
     height: 200px;
     flex-shrink: 0;
     border-radius: 16px;
-    margin-left: 160px;
+    margin-left: 400px;
     background: linear-gradient(
       180deg,
       rgba(18, 18, 18, 0) 68.25%,

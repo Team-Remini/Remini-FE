@@ -1,45 +1,15 @@
-import React from "react";
-import { Header } from "../components/Header";
+import React, { useState } from "react";
+import { Header } from "../../components/Header";
 import styled from "styled-components";
-import CompleteImg from "../img/UI/basicImage.png";
-import BasicProfile from "../img/UI/basicProfile.png";
-//import FiveFContent from "../components/GuideLine/FiveFContent";
-//import FourContent from "../components/GuideLine/FourContent";
-//import PersonalContent from "../components/GuideLine/PersonalContent";
-//import ThreeContent from "../components/GuideLine/ThreeContent";
+import CompleteImg from "../../img/UI/basicImage.png";
+import BasicProfile from "../../img/UI/basicProfile.png";
+import GuideLineFourContent from "../../components/GuideLine/FourContent";
 
-// 페이지 처음 렌더링시 GET 요청(회고 조회)
-// isMine == true -> 공유|삭제|수정 버튼
-// isMine == false -> 기획 논의 필요
-
-//임시로, 우선 css 불러오는 것은 해결 한 것 같네요! , api 연결 후 아래 써주기 {renderContent()}
-
-/*interface RetrospectiveData {
-  type: string;
-  title: string;
-  content: string;
-}
-
-interface CompleteWritingProps {
-  retrospectiveData: RetrospectiveData;
-}
-*/
-function CompleteWriting() {
-  // 회고 유형에 따라 적절한 디자인 템플릿을 렌더링
-  /*const renderContent = () => {
-    switch (retrospectiveData.type) {
-      case "type1":
-        return <FiveFContent />;
-      case "type2":
-        return <FourContent />;
-      case "type3":
-        return <PersonalContent />;
-      case "type4":
-        return <ThreeContent />;
-      default:
-        return <div>알 수 없는 회고 유형</div>;
-    }
-    */
+function CompleteWritingFourL() {
+  const [firstContent, setFirstContent] = useState("");
+  const [secondContent, setSecondContent] = useState("");
+  const [thirdContent, setThirdContent] = useState("");
+  const [fourContent, setFourContent] = useState("");
 
   return (
     <>
@@ -50,10 +20,10 @@ function CompleteWriting() {
         </div>
         <div className="content-container">
           <div className="WritingKind_container">
-            <div className="WritingKind_title">회고 종류</div>
+            <div className="WritingKind_title">4L 회고</div>
             <div className="WritingKind_content">
-              어떤 회고 있가요?어떤 회고 있가요?어떤 회고 있가요?어떤 회고
-              있가요?
+              4L 회고는 오로지 내가 수행하였던 일에만 집중해서 솔직하게 정리하는
+              회고예요
             </div>
             <div className="userInfo-container">
               <div className="user-info">
@@ -67,7 +37,76 @@ function CompleteWriting() {
             <img src={CompleteImg} alt="CompleteImg" className="CompleteImg" />
           </div>
         </div>
-        <div className="mainContent-container"></div>
+        <div className="mainContent-container">
+          <GuideLineFourContent>
+            <div className="AllmainConten_container">
+              <div className="leftContent_container">
+                <div className="mainContent_Btn">Liked</div>
+                <div className="maintext_container">
+                  <p>좋았던 것을 작성하기</p>
+                </div>
+                <div>
+                  <textarea
+                    className="mainContent_Input"
+                    placeholder="텍스트를 입력해주세요"
+                    value={firstContent}
+                    onChange={(e) => setFirstContent(e.target.value)}
+                    style={{ resize: "none" }} // 사이즈 조절 방지
+                  ></textarea>
+                  <p className="text_num">{firstContent.length}/200</p>
+                </div>
+              </div>
+              <div className="middleContent_container">
+                <div className="mainContent_Btn">Learned</div>
+                <div className="maintext_container">
+                  <p>배운 것을 작성하기</p>
+                </div>
+                <div>
+                  <textarea
+                    className="mainContent_Input"
+                    placeholder="텍스트를 입력해주세요"
+                    value={secondContent}
+                    onChange={(e) => setSecondContent(e.target.value)}
+                    style={{ resize: "none" }} // 사이즈 조절 방지
+                  ></textarea>
+                  <p className="text_num">{secondContent.length}/200</p>
+                </div>
+              </div>
+              <div className="rightContent_container">
+                <div className="mainContent_Btn">Lacked</div>
+                <div className="maintext_container">
+                  <p>부족했던 것을 작성하기</p>
+                </div>
+                <div>
+                  <textarea
+                    className="mainContent_Input"
+                    placeholder="텍스트를 입력해주세요"
+                    value={thirdContent}
+                    onChange={(e) => setThirdContent(e.target.value)}
+                    style={{ resize: "none" }} // 사이즈 조절 방지
+                  ></textarea>
+                  <p className="text_num">{thirdContent.length}/200</p>
+                </div>
+              </div>
+              <div className="rightContent_container">
+                <div className="mainContent_Btn">Longed for</div>
+                <div className="maintext_container">
+                  <p>바라는 것을 작성하기</p>
+                </div>
+                <div>
+                  <textarea
+                    className="mainContent_Input"
+                    placeholder="텍스트를 입력해주세요"
+                    value={fourContent}
+                    onChange={(e) => setFourContent(e.target.value)}
+                    style={{ resize: "none" }} // 사이즈 조절 방지
+                  ></textarea>
+                  <p className="text_num">{fourContent.length}/200</p>
+                </div>
+              </div>
+            </div>
+          </GuideLineFourContent>
+        </div>
         <div className="completeButtom-contaner">
           <button className="shareBtn">공유</button>
           <button className="deleteBtn">삭제</button>
@@ -78,7 +117,7 @@ function CompleteWriting() {
   );
 }
 
-export default CompleteWriting;
+export default CompleteWritingFourL;
 
 const CompleteWritingWrap = styled.div`
   background: var(--Background, #121212);
@@ -137,7 +176,11 @@ const CompleteWritingWrap = styled.div`
     font-size: 18px;
     font-style: normal;
     font-weight: 600;
-    line-height: normal;
+    line-height: 1.5;
+    max-width: 800px;
+    text-align: justify;
+    margin: auto;
+    padding: 20px;
   }
 
   .Image_container {
@@ -145,7 +188,7 @@ const CompleteWritingWrap = styled.div`
     height: 200px;
     flex-shrink: 0;
     border-radius: 16px;
-    margin-left: 160px;
+    margin-left: 300px;
     background: linear-gradient(
       180deg,
       rgba(18, 18, 18, 0) 68.25%,
