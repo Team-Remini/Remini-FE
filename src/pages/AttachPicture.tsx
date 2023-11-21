@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { Header } from "../components/Header";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import WritingPageBtnWrap from "../components/WritingPageBtn";
 
 //회고 작성완료 후 사진 첨부 페이지 - 백엔드와 연결 필요
@@ -9,10 +10,6 @@ import WritingPageBtnWrap from "../components/WritingPageBtn";
 export default function AttachPicture() {
   const navigate = useNavigate();
   const [pictureFile, setPictureFile] = useState<File | null>(null);
-
-  const goToCompleteWriting = () => {
-    navigate("/completeWriting");
-  };
 
   //드래그 된 요소가 위에 있을 때 발생
   const onDragOver = (e: React.DragEvent<HTMLDivElement>) => {
@@ -25,6 +22,41 @@ export default function AttachPicture() {
     const files = e.dataTransfer.files;
     if (files.length > 0) {
       setPictureFile(files[0]);
+    }
+  };
+
+  // 회고 생성
+  const goToCompleteWriting = async () => {
+    const accessToken = localStorage.getItem("accessToken");
+    const storedSectionTexts = localStorage.getItem("sectionTexts");
+    const sectionTexts = storedSectionTexts
+      ? JSON.parse(storedSectionTexts)
+      : [];
+
+    const data = {
+      instantSave: false,
+      sectionTexts,
+      step: 0,
+      title: localStorage.getItem("title"),
+      type: localStorage.getItem("type"),
+    };
+
+    try {
+      const response = await axios.post(
+        "https://www.remini.store/api/remini",
+        data,
+        {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        }
+      );
+
+      console.log("요청 성공:", response.data);
+      navigate("/completeWriting");
+    } catch (error) {
+      console.error("요청 실패:", error);
+      // 실패 처리 로직 추가
     }
   };
 
@@ -47,13 +79,11 @@ export default function AttachPicture() {
           )}
         </div>
         <WritingPageBtnWrap>
-          <button className="temporary_btn">첨부 안 함</button>
           <button
             className="completed_btn"
             style={{
-              backgroundColor: pictureFile ? "#79CD96" : " #305D40",
+              backgroundColor: "#79CD96",
             }}
-            disabled={!pictureFile}
             onClick={() => {
               goToCompleteWriting();
             }}
