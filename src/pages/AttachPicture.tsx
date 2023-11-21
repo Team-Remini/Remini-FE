@@ -15,8 +15,9 @@ export default function AttachPicture() {
 
   const goToCompleteWriting = (useDefaultImage = false) => {
     const imageToSend = useDefaultImage ? defaultImage : pictureFile;
-    navigate("/completeWriting", { state: { image: imageToSend } });
+    navigate("/MyPage", { state: { image: imageToSend } });
   };
+  ///completeWriting -> MyPage로 임시변경
 
   const onDragOver = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
@@ -69,7 +70,7 @@ export default function AttachPicture() {
       );
 
       console.log("요청 성공:", response.data);
-      navigate("/completeWriting");
+      goToCompleteWriting();
     } catch (error) {
       console.error("요청 실패:", error);
     }
@@ -100,17 +101,10 @@ export default function AttachPicture() {
         </div>
         <WritingPageBtnWrap>
           <button
-            className="temporary_btn"
-            onClick={() => goToCompleteWriting(true)}
-          >
-            첨부 안 함
-          </button>
-          <button
             className="completed_btn"
             style={{
-              backgroundColor: pictureFile ? "#79CD96" : "#305D40",
+              backgroundColor: "#79CD96",
             }}
-            // disabled={!pictureFile}
             // onClick={() => goToCompleteWriting()}
             onClick={createRetro} // 일단 회고 생성으로 대체
           >
