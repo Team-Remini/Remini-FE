@@ -41,10 +41,12 @@ export default function YWT() {
                   (やったこと-yattakoto)
                 </div>
                 <div className="maintext_container">
-                  <p>
+                  <p style={{ fontWeight: 700 }}>
                     일을 통해 명확히 알게 되었거나
-                    <br />
-                    이해한 부분 작성하기
+                  </p>
+                  <p>
+                    <span style={{ fontWeight: 700 }}>이해한 부분</span>{" "}
+                    작성하기
                   </p>
                 </div>
                 <div>
@@ -66,7 +68,8 @@ export default function YWT() {
                 </div>
                 <div className="maintext_container">
                   <p>
-                    배운 점과 시사점 작성하기
+                    <span style={{ fontWeight: 700 }}>배운 점과 시사점</span>{" "}
+                    작성하기
                     <br />
                     <br />
                   </p>
@@ -88,10 +91,12 @@ export default function YWT() {
                   (つぎにやること-tsuginiyarukoto)
                 </div>
                 <div className="maintext_container">
+                  <p style={{ fontWeight: 700 }}>응용하여 배운 것을</p>
                   <p>
-                    응용하여 배운 것을
-                    <br />
-                    어디에 어떻게 적용할 지 작성하기
+                    <span style={{ fontWeight: 700 }}>
+                      어디에 어떻게 적용할 지
+                    </span>{" "}
+                    작성하기
                   </p>
                 </div>
                 <div>

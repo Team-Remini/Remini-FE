@@ -73,7 +73,7 @@ export default function AAR() {
                 <div className="mainContent_Btn">초기 목표</div>
                 <div className="maintext_container">
                   <p>
-                    의도한 결과는
+                    <span style={{ fontWeight: 700 }}>의도한 결과</span>는
                     <br />
                     무엇이었는지 작성하기
                   </p>
@@ -92,10 +92,9 @@ export default function AAR() {
               <div className="middleContent_container">
                 <div className="mainContent_Btn">현실</div>
                 <div className="maintext_container">
+                  <p style={{ fontWeight: 700 }}>실제 어떤 일들이</p>
                   <p>
-                    실제 어떤 일들이
-                    <br />
-                    일어났는지 작성하기
+                    <span style={{ fontWeight: 700 }}>일어났는지</span> 작성하기
                   </p>
                 </div>
                 <div>
@@ -112,9 +111,13 @@ export default function AAR() {
               <div className="rightContent_container">
                 <div className="mainContent_Btn">배운 점들</div>
                 <div className="maintext_container">
+                  <p style={{ fontWeight: 700 }}>
+                    계획과 실제 결과의 차이는 왜 발생
+                  </p>
                   <p>
-                    계획과 실제 결과의 차이는 왜 <br />
-                    발생 되었는지, 무엇을 배웠는지 작성하기
+                    되었는지,{" "}
+                    <span style={{ fontWeight: 700 }}>무엇을 배웠는지</span>{" "}
+                    작성하기
                   </p>
                 </div>
                 <div>
@@ -132,7 +135,10 @@ export default function AAR() {
                 <div className="mainContent_Btn">목적</div>
                 <div className="maintext_container">
                   <p>
-                    지속, 개선 혹은 포기할 것들은
+                    <span style={{ fontWeight: 700 }}>
+                      지속, 개선 혹은 포기할 것
+                    </span>
+                    들은
                     <br />
                     무엇인지 작성하기
                   </p>

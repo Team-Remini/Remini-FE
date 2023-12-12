@@ -40,7 +40,7 @@ export default function KPT() {
                 <div className="mainContent_Btn">Keep</div>
                 <div className="maintext_container">
                   <p>좋은 결과를 만들었고,</p>
-                  <p>계속해서 유지해 나가야할 것을 작성해주세요.</p>
+                  <p style={{ fontWeight: 700 }}>계속해서 유지해 나가야할 것</p>
                 </div>
                 <div>
                   <textarea
@@ -57,7 +57,7 @@ export default function KPT() {
                 <div className="mainContent_Btn">Problem</div>
                 <div className="maintext_container">
                   <p>아쉬운 결과를 만들었고,</p>
-                  <p>앞으로 개선되어야 할 것</p>
+                  <p style={{ fontWeight: 700 }}>앞으로 개선되어야 할 것</p>
                 </div>
                 <div>
                   <textarea
@@ -74,7 +74,12 @@ export default function KPT() {
                 <div className="mainContent_Btn">Try</div>
                 <div className="maintext_container">
                   <p>문제를 파악하고,</p>
-                  <p>이를 해결하기 위한 구체적인 개선방안</p>
+                  <p>
+                    이를{" "}
+                    <span style={{ fontWeight: 700 }}>
+                      해결하기 위한 구체적인 개선방안
+                    </span>
+                  </p>
                 </div>
                 <div>
                   <textarea

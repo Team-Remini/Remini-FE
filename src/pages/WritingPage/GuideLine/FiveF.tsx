@@ -48,7 +48,8 @@ export default function FiveF() {
               <div className="Content-Container">
                 <div className="mainContent_Btn">Fact</div>
                 <div className="maintext_container">
-                  우리가 무엇을 시작하여야 할 지에 대해 작성하기
+                  <span style={{ fontWeight: 700 }}>한 일에 대한 사실</span>을
+                  작성하기
                 </div>
               </div>
               <div>
@@ -64,7 +65,8 @@ export default function FiveF() {
               <div className="Content-Container">
                 <div className="mainContent_Btn">Feelings</div>
                 <div className="maintext_container">
-                  한 일에 대한 느낀점을 작성하기
+                  <span style={{ fontWeight: 700 }}>한 일에 대한 느낀점</span>을
+                  작성하기
                 </div>
               </div>
               <div>
@@ -80,7 +82,10 @@ export default function FiveF() {
               <div className="Content-Container">
                 <div className="mainContent_Btn">Finding</div>
                 <div className="maintext_container">
-                  무엇을 배웠는지, 인사이트, 교훈을 작성하기
+                  <span style={{ fontWeight: 700 }}>
+                    무엇을 배웠는지, 인사이트, 교훈
+                  </span>
+                  을 작성하기
                 </div>
               </div>
               <div>
@@ -95,7 +100,9 @@ export default function FiveF() {
               </div>
               <div className="Content-Container">
                 <div className="mainContent_Btn">Future Action</div>
-                <div className="maintext_container">향후 계획을 작성하기</div>
+                <div className="maintext_container">
+                  <span style={{ fontWeight: 700 }}>향후 계획</span>을 작성하기
+                </div>
               </div>
               <div>
                 <textarea
@@ -110,7 +117,10 @@ export default function FiveF() {
               <div className="Content-Container">
                 <div className="mainContent_Btn">Feedback</div>
                 <div className="maintext_container">
-                  향후 계획에 대한 피드백을 작성하기
+                  <span style={{ fontWeight: 700 }}>
+                    향후 계획에 대한 피드백
+                  </span>
+                  을 작성하기
                 </div>
               </div>
               <div>

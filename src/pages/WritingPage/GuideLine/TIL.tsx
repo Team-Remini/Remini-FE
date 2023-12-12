@@ -40,7 +40,7 @@ export default function TIL() {
                 <div className="mainContent_Btn">잘한 점</div>
                 <div className="maintext_container">
                   <p>
-                    성취 - 오늘의 나는
+                    <span style={{ fontWeight: 700 }}>성취</span> - 오늘의 나는
                     <br />
                     무엇을 잘했는지 작성하기
                   </p>
@@ -60,7 +60,8 @@ export default function TIL() {
                 <div className="mainContent_Btn">개선 점</div>
                 <div className="maintext_container">
                   <p>
-                    개선 - 오늘의 나는 어떤 문제를 겪었는지,
+                    <span style={{ fontWeight: 700 }}>개선</span> - 오늘의 나는
+                    어떤 문제를 겪었는지,
                     <br />
                     앞으로 어떻게 해결할 것인지 작성하기
                   </p>
@@ -80,7 +81,8 @@ export default function TIL() {
                 <div className="mainContent_Btn">배운 점</div>
                 <div className="maintext_container">
                   <p>
-                    학습 - 오늘의 일에서
+                    <span style={{ fontWeight: 700 }}>학습</span> - 오늘의
+                    일에서
                     <br />
                     나는 어떤 것을 배웠는지 작성하기
                   </p>

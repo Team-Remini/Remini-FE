@@ -54,7 +54,11 @@ export default function Performance() {
             <div className="AllmainConten_container">
               <div className="Content-Container">
                 <div className="maintext_container">
-                  연초(분기초)에 세운 목표치를 몇% 달성하였는지 작성하기
+                  연초(분기초)에 세운{" "}
+                  <span style={{ fontWeight: 700 }}>
+                    목표치를 몇% 달성하였는지
+                  </span>{" "}
+                  작성하기
                 </div>
               </div>
               <div>
@@ -69,8 +73,11 @@ export default function Performance() {
               </div>
               <div className="Content-Container">
                 <div className="maintext_container">
-                  만일 높은(71~100%) 달성률을 기록했다면 목표를 너무 낮게 잡은
-                  것은 아닌지, 달성한 목표를 수정한다면 무엇을 바꿔야 하는지
+                  만일 높은(71~100%) 달성률을 기록했다면{" "}
+                  <span style={{ fontWeight: 700 }}>
+                    목표를 너무 낮게 잡은 것은 아닌지, 달성한 목표를 수정한다면
+                    무엇을 바꿔야 하는지
+                  </span>{" "}
                   작성하기
                 </div>
               </div>
@@ -86,7 +93,9 @@ export default function Performance() {
               </div>
               <div className="Content-Container">
                 <div className="maintext_container">
-                  목표를 달성하는 과정에서의 기여 요인은 무엇인지 작성하기
+                  목표를 달성하는 과정에서의{" "}
+                  <span style={{ fontWeight: 700 }}>기여 요인</span>은 무엇인지
+                  작성하기
                 </div>
               </div>
               <div>
@@ -101,8 +110,9 @@ export default function Performance() {
               </div>
               <div className="Content-Container">
                 <div className="maintext_container">
-                  목표를 달성하는 과정에서 성공을 가로막은 것은 무엇인지
-                  작성하기
+                  목표를 달성하는 과정에서{" "}
+                  <span style={{ fontWeight: 700 }}>성공을 가로막은 것</span>은
+                  무엇인지 작성하기
                 </div>
               </div>
               <div>
@@ -117,7 +127,8 @@ export default function Performance() {
               </div>
               <div className="Content-Container">
                 <div className="maintext_container">
-                  무엇을 개선한다면, 더 높은 성과를 달성할 수 있는지 작성하기
+                  <span style={{ fontWeight: 700 }}>무엇을 개선</span>한다면, 더
+                  높은 성과를 달성할 수 있는지 작성하기
                 </div>
               </div>
               <div>
@@ -133,8 +144,12 @@ export default function Performance() {
               {/* 6부터 */}
               <div className="Content-Container">
                 <div className="maintext_container">
-                  스스로 평가하는 성과는 어떠한가? 지난해(분기) 대비 얼마나
-                  성장하였는지 작성하기
+                  <span style={{ fontWeight: 700 }}>스스로 평가하는 성과</span>
+                  는 어떠한가?{" "}
+                  <span style={{ fontWeight: 700 }}>
+                    지난해(분기) 대비 얼마나 성장하였는지
+                  </span>{" "}
+                  작성하기
                 </div>
               </div>
               <div>
@@ -149,7 +164,10 @@ export default function Performance() {
               </div>
               <div className="Content-Container">
                 <div className="maintext_container">
-                  이번 교훈을 통해 내년(다음 분기)에는 무엇을 바꿔야 하는지
+                  이번 교훈을 통해{" "}
+                  <span style={{ fontWeight: 700 }}>
+                    내년(다음 분기)에는 무엇을 바꿔야 하는지
+                  </span>{" "}
                   작성하기
                 </div>
               </div>

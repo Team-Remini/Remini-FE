@@ -46,7 +46,10 @@ export default function FourL() {
               <div className="leftContent_container">
                 <div className="mainContent_Btn">Liked</div>
                 <div className="maintext_container">
-                  <p>좋았던 것을 작성하기</p>
+                  <p>
+                    <span style={{ fontWeight: 700 }}>좋았던 것</span>을
+                    작성하기
+                  </p>
                 </div>
                 <div>
                   <textarea
@@ -62,7 +65,10 @@ export default function FourL() {
               <div className="middleContent_container">
                 <div className="mainContent_Btn">Learned</div>
                 <div className="maintext_container">
-                  <p>배운 것을 작성하기</p>
+                  <p>
+                    {" "}
+                    <span style={{ fontWeight: 700 }}>배운 것</span>을 작성하기
+                  </p>
                 </div>
                 <div>
                   <textarea
@@ -78,7 +84,11 @@ export default function FourL() {
               <div className="rightContent_container">
                 <div className="mainContent_Btn">Lacked</div>
                 <div className="maintext_container">
-                  <p>부족했던 것을 작성하기</p>
+                  <p>
+                    {" "}
+                    <span style={{ fontWeight: 700 }}>부족했던 것</span>을
+                    작성하기
+                  </p>
                 </div>
                 <div>
                   <textarea
@@ -94,7 +104,11 @@ export default function FourL() {
               <div className="rightContent_container">
                 <div className="mainContent_Btn">Longed for</div>
                 <div className="maintext_container">
-                  <p>바라는 것을 작성하기</p>
+                  <p>
+                    {" "}
+                    <span style={{ fontWeight: 700 }}>바라는 것</span>을
+                    작성하기
+                  </p>
                 </div>
                 <div>
                   <textarea

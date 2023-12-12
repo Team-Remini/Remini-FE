@@ -49,7 +49,10 @@ export default function ORID() {
                 <p>
                   객관적인 사실과 경험을 중심으로
                   <br />
-                  스스로 알고 있는 것을 확인하여 작성하기
+                  <span style={{ fontWeight: 700 }}>
+                    스스로 알고 있는 것을 확인
+                  </span>
+                  하여 작성하기
                 </p>
               </div>
               <div>
@@ -69,7 +72,8 @@ export default function ORID() {
                 <p>
                   그 때의 감정이나 느낌은 무엇인지
                   <br />
-                  감정과 느낌을 탐색하며 작성하기
+                  <span style={{ fontWeight: 700 }}>감정과 느낌을 탐색</span>
+                  하며 작성하기
                 </p>
               </div>
               <div>
@@ -89,7 +93,8 @@ export default function ORID() {
                 <p>
                   각각의 일들이 시사하는 점이 무엇인지
                   <br />
-                  해석과 분석을 하며 작성하기
+                  <span style={{ fontWeight: 700 }}>해석과 분석</span>을 하며
+                  작성하기
                 </p>
               </div>
               <div>
@@ -107,8 +112,12 @@ export default function ORID() {
               <div className="mainContent_Btn">Decisional</div>
               <div className="maintext_container">
                 <p>
-                  문제해결을 위해 미래에 대한 <br />
-                  행동과 변화를 결정하여 작성하기
+                  문제해결을 위해{" "}
+                  <span style={{ fontWeight: 700 }}>
+                    미래에 대한 <br />
+                    행동과 변화를 결정
+                  </span>
+                  하여 작성하기
                 </p>
               </div>
               <div>
