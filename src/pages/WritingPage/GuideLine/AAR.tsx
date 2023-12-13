@@ -59,7 +59,6 @@ export default function AAR() {
   // 이미지 업로드(Presigned URL)
   const uploadImage = async (response: AxiosResponse) => {
     const imageToSend = await getDefaultImageFile();
-
     try {
       const imageResponse = await axios.put(
         response.data.uploadUrl,
