@@ -4,6 +4,8 @@ import WritingPageWrap from "../../../components/WritingPageWrap";
 import { useNavigate } from "react-router-dom";
 import WritingPageBtn from "../../../components/WritingPageBtn";
 import GuideLinePersonalContent from "../../../components/GuideLine/PersonalContent";
+import axios, { AxiosResponse } from "axios";
+import defaultImage from "../../../img/UI/basicImage.png";
 
 //Performance 회고 페이지
 export default function Performance() {
@@ -14,6 +16,15 @@ export default function Performance() {
   const [fifthContent, setFifthContent] = useState("");
   const [sixthContent, setSixthContent] = useState("");
   const [seventhContent, setSeventhContent] = useState("");
+  const sectionTexts = [
+    firstContent,
+    secondContent,
+    thirdContent,
+    fourContent,
+    fifthContent,
+    sixthContent,
+    seventhContent,
+  ];
   const navigate = useNavigate();
 
   const isFirstContentFilled = firstContent.trim().length > 0;
@@ -25,17 +36,70 @@ export default function Performance() {
   const isSeventhContentFilled = seventhContent.trim().length > 0;
 
   const goToAttachPicture = () => {
-    const sectionTexts = [
-      firstContent,
-      secondContent,
-      thirdContent,
-      fourContent,
-      fifthContent,
-      sixthContent,
-      seventhContent,
-    ];
     localStorage.setItem("sectionTexts", JSON.stringify(sectionTexts));
     navigate("/attach-picture");
+  };
+
+  // 임시 저장
+  const handleTemporarySave = () => {
+    const accessToken = localStorage.getItem("accessToken");
+
+    const data = {
+      instantSave: true,
+      sectionTexts,
+      step: 1,
+      title: localStorage.getItem("title"),
+      type: localStorage.getItem("type"),
+    };
+
+    axios
+      .post("https://www.remini.store/api/remini", data, {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      })
+      .then((response) => {
+        console.log("임시 저장 완료", response.data);
+        alert("임시 저장에 성공했습니다!");
+        uploadImage(response);
+      })
+      .catch((error) => {
+        console.error("임시 저장 실패:", error);
+      });
+  };
+
+  // 이미지 업로드(Presigned URL)
+  const uploadImage = async (response: AxiosResponse) => {
+    const imageToSend = await getDefaultImageFile();
+
+    try {
+      const imageResponse = await axios.put(
+        response.data.uploadUrl,
+        imageToSend,
+        {
+          headers: {
+            "Content-Type": "image/png",
+          },
+        }
+      );
+      console.log("이미지 업로드 성공:", imageResponse);
+      navigate("/my-page");
+    } catch (error) {
+      console.error("이미지 업로드 실패:", error);
+    }
+  };
+
+  // 기본 이미지 파일 가져오기(파일 객체로 변환)
+  const getDefaultImageFile = async () => {
+    try {
+      const response = await fetch(defaultImage);
+      const blob = await response.blob();
+      const file = new File([blob], "defaultImage.png", { type: "image/png" });
+      return file;
+    } catch (error) {
+      console.error("기본 이미지 가져오기 실패:", error);
+      return null;
+    }
   };
 
   return (
@@ -187,22 +251,35 @@ export default function Performance() {
         <WritingPageBtn>
           <button
             className="temporary_btn"
+            style={{
+              opacity:
+                isFirstContentFilled ||
+                isSecondContentFilled ||
+                isThirdContentFilled ||
+                isFourContentFilled ||
+                isFifthContentFilled ||
+                isSixthContentFilled ||
+                isSeventhContentFilled
+                  ? 1
+                  : 0.5,
+            }}
             disabled={
-              !isFirstContentFilled ||
-              !isSecondContentFilled ||
-              !isThirdContentFilled ||
-              !isFourContentFilled ||
-              !isFifthContentFilled ||
-              !isSixthContentFilled ||
+              !isFirstContentFilled &&
+              !isSecondContentFilled &&
+              !isThirdContentFilled &&
+              !isFourContentFilled &&
+              !isFifthContentFilled &&
+              !isSixthContentFilled &&
               !isSeventhContentFilled
             }
+            onClick={handleTemporarySave}
           >
             임시 저장
           </button>
           <button
             className="completed_btn"
             style={{
-              backgroundColor:
+              opacity:
                 isFirstContentFilled &&
                 isSecondContentFilled &&
                 isThirdContentFilled &&
@@ -210,8 +287,8 @@ export default function Performance() {
                 isFifthContentFilled &&
                 isSixthContentFilled &&
                 isSeventhContentFilled
-                  ? "#79CD96"
-                  : " #305D40",
+                  ? 1
+                  : 0.5,
             }}
             disabled={
               !isFirstContentFilled ||
