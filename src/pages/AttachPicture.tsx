@@ -10,6 +10,7 @@ import defaultImage from "../img/UI/basicImage.png";
 export default function AttachPicture() {
   const navigate = useNavigate();
   const [pictureFile, setPictureFile] = useState<File | null>(null);
+  const [previewUrl, setPreviewUrl] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   // 회고 생성
@@ -96,18 +97,18 @@ export default function AttachPicture() {
     const files = e.dataTransfer.files;
     if (files.length > 0) {
       setPictureFile(files[0]);
+      setPreviewUrl(URL.createObjectURL(files[0]));
     }
   };
 
-  // 파일 선택(input type="file") 이벤트 처리
+  // 미리보기 기능 추가
   const handleFileSelect = (event: React.ChangeEvent<HTMLInputElement>) => {
-    if (event.target.files && event.target.files.length > 0) {
+    if (event.target?.files && event.target.files.length > 0) {
       const file = event.target.files[0];
       setPictureFile(file);
+      setPreviewUrl(URL.createObjectURL(file));
     }
   };
-
-  // 파일 선택(input type="file") 요소 클릭하는 함수
   const triggerFileInput = () => {
     fileInputRef.current?.click();
   };
@@ -134,13 +135,18 @@ export default function AttachPicture() {
               또는 파일을 여기로 드래그 해주세요
             </p>
           )}
+          {previewUrl && (
+            <img
+              src={previewUrl}
+              alt="Preview"
+              style={{ width: "100%", height: "auto", marginTop: "20px" }}
+            />
+          )}
         </div>
         <WritingPageBtnWrap>
           <button
             className="completed_btn"
-            style={{
-              backgroundColor: "#79CD96",
-            }}
+            style={{ backgroundColor: "#79CD96" }}
             onClick={createRetro}
           >
             회고 완료
