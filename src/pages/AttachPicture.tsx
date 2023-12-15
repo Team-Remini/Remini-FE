@@ -120,6 +120,15 @@ export default function AttachPicture() {
         <div className="titleText">
           <p>첨부하고 싶은 사진이 있다면 넣어주세요</p>
         </div>
+        <div className="preview">
+          {previewUrl && (
+            <img
+              src={previewUrl}
+              alt="Preview"
+              style={{ width: "300px", height: "300px", marginTop: "20px" }}
+            />
+          )}
+        </div>
         <div
           className="picture_container"
           onDragOver={onDragOver}
@@ -134,13 +143,6 @@ export default function AttachPicture() {
             <p className="picture_input_text">
               또는 파일을 여기로 드래그 해주세요
             </p>
-          )}
-          {previewUrl && (
-            <img
-              src={previewUrl}
-              alt="Preview"
-              style={{ width: "100%", height: "auto", marginTop: "20px" }}
-            />
           )}
         </div>
         <WritingPageBtnWrap>
@@ -166,7 +168,9 @@ export default function AttachPicture() {
 
 const AttachPictureWrap = styled.div`
   background-color: #121212;
-  padding: 0px 100px;
+  height: 100%;
+  width: 100%;
+  //padding: 0px 100px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -174,7 +178,7 @@ const AttachPictureWrap = styled.div`
 
   .titleText {
     margin-top: 90px;
-    margin-bottom: 60px;
+    margin-block: 30px;
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -225,5 +229,10 @@ const AttachPictureWrap = styled.div`
     font-style: normal;
     font-weight: 600;
     line-height: normal;
+  }
+
+  .preview {
+    text-align: center;
+    margin-block: 40px;
   }
 `;
