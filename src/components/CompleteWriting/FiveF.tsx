@@ -123,7 +123,6 @@ function CompleteWritingFiveF() {
             </div>
           </div>
           <div className="Image_container">
-            {/*
             <img
               src={retrospectiveData?.reminiImage || CompleteImg}
               alt="CompleteImg"
@@ -141,7 +140,6 @@ function CompleteWritingFiveF() {
                 {likesCount}
               </p>
             </div>
-             */}
           </div>
         </div>
 

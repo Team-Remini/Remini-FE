@@ -278,7 +278,7 @@ const CompleteWritingWrap = styled.div`
   }
 
   .CompleteImg {
-    width: 330dp;
+    width: 280dp;
     height: 230px;
     border-radius: 16px;
     background: linear-gradient(
