@@ -35,9 +35,6 @@ function CompleteWritingKPT() {
         );
         const data = response.data;
 
-        console.log("연동 성공");
-        console.log(data);
-
         setRetrospectiveData(data);
         if (data.sectionTexts && data.sectionTexts.length === 3) {
           setFirstContent(data.sectionTexts[0]);
@@ -269,10 +266,18 @@ const CompleteWritingWrap = styled.div`
     padding: 20px;
   }
 
+  .userInfo-container {
+    margin-top: 60px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 21px;
+  }
+
   .Image_container {
-    position: relative; /* 이미지 컨테이너에 대한 상대적 위치 설정 */
-    width: 280px; /* 필요한 경우 이미지 컨테이너의 너비를 설정 */
-    margin-left: 400px; /* 필요에 따라 조정 */
+    position: relative;
+    width: 280px;
+    margin-left: 400px;
   }
 
   .CompleteImg {
@@ -303,14 +308,6 @@ const CompleteWritingWrap = styled.div`
     line-height: normal;
   }
 
-  .userInfo-container {
-    margin-top: 60px;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    gap: 21px;
-  }
-
   .user-name {
     color: var(--text-high-emphasis, rgba(255, 255, 255, 0.87));
     font-size: 16px;
@@ -332,5 +329,54 @@ const CompleteWritingWrap = styled.div`
     display: inline-flex;
     justify-content: center;
     flex-direction: row;
+  }
+  .shareBtn {
+    width: 92dp;
+    height: 45dp;
+    display: inline-flex;
+    padding: 13px 32px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-high-emphasis, rgba(255, 255, 255, 0.87));
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    margin-left: 30dp;
+    border: none;
+  }
+  .deleteBtn {
+    width: 92dp;
+    height: 45dp;
+    display: inline-flex;
+    padding: 13px 32px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 16px;
+    background: rgba(207, 102, 121, 0.5);
+    color: var(--text-high-emphasis, rgba(255, 255, 255, 0.87));
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    border: none;
+  }
+  .editBtn {
+    width: 92dp;
+    height: 45dp;
+    display: inline-flex;
+    padding: 13px 32px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 16px;
+    background: var(--primary-900, #233e2c);
+    color: var(--text-high-emphasis, rgba(255, 255, 255, 0.87));
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    border: none;
   }
 `;
