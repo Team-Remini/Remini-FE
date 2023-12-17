@@ -43,7 +43,7 @@ function CompleteWritingKPT() {
     if (id) {
       fetchData();
     }
-  }, [id]);
+  }, [id, retrospectiveData]);
 
   return (
     <>
@@ -228,23 +228,6 @@ const CompleteWritingWrap = styled.div`
       rgba(18, 18, 18, 0) 68.25%,
       rgba(18, 18, 18, 0.35) 100%
     );
-  }
-
-  .likes {
-    position: absolute;
-    top: 190px;
-    right: 200px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .likes p {
-    color: rgba(255, 255, 255, 0.87);
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
   }
 
   .user-name {
