@@ -10,6 +10,7 @@ type DataType = {
   createdDate: string;
   nickname: String;
   reminiImage: string;
+  profileImageURL: string;
 };
 
 function CompleteWritingKPT() {
@@ -57,7 +58,11 @@ function CompleteWritingKPT() {
             </div>
             <div className="userInfo-container">
               <div className="user-info">
-                <img src={BasicProfile} />
+                <img
+                  src={retrospectiveData?.profileImageURL || BasicProfile}
+                  alt="profileImag"
+                  className="user-profile"
+                />
               </div>
               <div className="user-name">
                 {retrospectiveData?.nickname || "레미니"}
@@ -209,6 +214,13 @@ const CompleteWritingWrap = styled.div`
     justify-content: center;
     align-items: center;
     gap: 21px;
+  }
+
+  .user-profile {
+    width: 35px;
+    height: 35px;
+    flex-shrink: 0;
+    border-radius: 50%;
   }
 
   .Image_container {
