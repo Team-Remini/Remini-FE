@@ -70,7 +70,7 @@ function CompleteWritingKPT({ isEditMode }) {
       );
 
       console.log("수정 요청 성공:", response.data);
-      alert("수정이 완료되었습니다!");
+      alert("수정이 완료되었습니다!🥳");
       window.location.reload();
       setIsEditMode(false);
     } catch (error) {
@@ -339,6 +339,7 @@ const CompleteWritingWrap = styled.div`
     font-style: normal;
     font-weight: 600;
     border: none;
+    margin-right: 20px;
   }
   .completeEditBtn {
     width: 92dp;
