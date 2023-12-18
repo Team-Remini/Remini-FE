@@ -20,7 +20,6 @@ const WritingPageBtnWrap = styled.div`
     font-weight: 600;
     line-height: normal;
     color: var(--Background, #121212);
-
     border: none;
     margin-right: 30px;
   }
@@ -29,7 +28,6 @@ const WritingPageBtnWrap = styled.div`
     height: 53px;
     margin-top: 30px;
     display: inline-flex;
-    padding: 16px 60px;
     justify-content: center;
     align-items: center;
     gap: 10px;
