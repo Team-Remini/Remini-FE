@@ -71,7 +71,7 @@ function CompleteWritingKPT({ isEditMode }) {
 
       console.log("수정 요청 성공:", response.data);
       alert("수정이 완료되었습니다!");
-      // 수정 후 편집 모드 종료
+      window.location.reload();
       setIsEditMode(false);
     } catch (error) {
       console.error("수정 요청 실패:", error);
