@@ -40,6 +40,7 @@ function CompleteWriting() {
   const [likesCount, setLikesCount] = useState(0);
   const [showShareModal, setShowShareModal] = useState(false);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [isEditMode, setIsEditMode] = useState(false);
 
   const fetchRetrospective = async () => {
     try {
@@ -157,6 +158,10 @@ function CompleteWriting() {
   //   setShowDeleteModal(false);
   // };
 
+  const handleEditClick = () => {
+    setIsEditMode(true);
+  };
+
   return (
     <>
       <CompleteWritingWrap>
@@ -180,7 +185,7 @@ function CompleteWriting() {
             {retrospective && retrospective.owner && (
               <>
                 <div className="editbtn">
-                  <img src={editbtn} alt="edit" />
+                  <img src={editbtn} alt="edit" onClick={handleEditClick} />
                 </div>
                 <div className="deletebtn" onClick={handleDeleteClick}>
                   <img src={deletebtn} alt="delete" />
@@ -190,6 +195,12 @@ function CompleteWriting() {
           </div>
         </div>
         <div className="mainContent-container">{renderContent()}</div>
+        <div className="editButton-contaner">
+          {/*
+          <button className="cancelBtnn">취소</button>
+          <button className="completeEditBtn">확인</button>
+          */}
+        </div>
         <div className="empty-box">
           <br />
           <br />

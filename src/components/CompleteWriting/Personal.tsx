@@ -70,7 +70,9 @@ function CompleteWritingPersonal() {
             <div className="WritingKind_title">개인적 회고</div>
             <div className="WritingKind_content">
               개인적 회고는 주로 일 년을 돌아보는 회고로, 개인이 보낸 한 해를
-              돌아보고 다음 한 해를 준비하기 좋은 회고예요
+              돌아보고
+              <br />
+              다음 한 해를 준비하기 좋은 회고예요
             </div>
             <div className="userInfo-container">
               <div className="user-info">

@@ -54,7 +54,8 @@ function CompleteWritingKPT() {
             <div className="WritingKind_title">KPT 회고</div>
             <div className="WritingKind_content">
               회고 3가지 관점에서 업무를 돌아보고, 다음 액션 아이템을 도출해내는
-              데 도움이 되는 회고예요
+              데<br />
+              도움이 되는 회고예요
             </div>
             <div className="userInfo-container">
               <div className="user-info">
