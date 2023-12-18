@@ -10,7 +10,6 @@ const WritingPageBtnWrap = styled.div`
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    padding: 16px 60px;
     gap: 10px;
     border-radius: 8px;
     background: rgba(255, 255, 255, 0.77);
