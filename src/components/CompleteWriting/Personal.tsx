@@ -114,98 +114,87 @@ function CompleteWritingPersonal() {
                 </div>
               </div>
               <div>
-                <div className="mainContent_Input">{firstContent}</div>
-                <p className="text_num">{firstContent.length}/200</p>
+                <div className="mainContent_Input">{secondContent}</div>
+                <p className="text_num">{secondContent.length}/200</p>
               </div>
-
               <div className="Content-Container">
                 <div className="maintext_container">
                   올해 가장 즐겼던 일을 작성하기
                 </div>
               </div>
               <div>
-                <div className="mainContent_Input">{secondContent}</div>
-                <p className="text_num">{secondContent.length}/200</p>
-              </div>
-
-              <div className="Content-Container">
-                <div className="maintext_container">
-                  올해 가장 아쉬웠던 일을 작성하기
-                </div>
-              </div>
-              <div>
                 <div className="mainContent_Input">{thirdContent}</div>
                 <p className="text_num">{thirdContent.length}/200</p>
               </div>
-
               <div className="Content-Container">
                 <div className="maintext_container">
-                  올해 가장 도전적이었던 일을 작성하기
+                  뭘 더 잘할 수 있을지 작성하기
                 </div>
               </div>
               <div>
                 <div className="mainContent_Input">{fourContent}</div>
                 <p className="text_num">{fourContent.length}/200</p>
               </div>
-
               <div className="Content-Container">
                 <div className="maintext_container">
-                  올해 가장 감동적이었던 일을 작성하기
+                  올해 극복해낸 챌린지는(난관은) 어떤 것인지 작성하기
                 </div>
               </div>
               <div>
                 <div className="mainContent_Input">{fifthContent}</div>
                 <p className="text_num">{fifthContent.length}/200</p>
               </div>
-
+              {/* 6부터 */}
               <div className="Content-Container">
                 <div className="maintext_container">
-                  올해 가장 행복했던 일을 작성하기
+                  올해 얻은 교훈은 어떤 것인지, 어떻게 성장했을지 작성하기
                 </div>
               </div>
               <div>
                 <div className="mainContent_Input">{sixthContent}</div>
                 <p className="text_num">{sixthContent.length}/200</p>
               </div>
-
               <div className="Content-Container">
                 <div className="maintext_container">
-                  올해 가장 감동적이었던 순간을 작성하기
+                  하겠다고 해놓고 안 한 일은 어떤 것인지 작성하기
                 </div>
               </div>
               <div>
                 <div className="mainContent_Input">{seventhContent}</div>
-                <p className="text_num">{seventhContent.length}/200</p>
+                <p className="text_num">{seventhContent}/200</p>
               </div>
-
               <div className="Content-Container">
                 <div className="maintext_container">
-                  올해 가장 기억에 남는 순간을 작성하기
+                  다시 하고싶은 일은 어떤 것인지 작성하기
                 </div>
               </div>
               <div>
                 <div className="mainContent_Input">{eighthContent}</div>
                 <p className="text_num">{eighthContent.length}/200</p>
               </div>
-
               <div className="Content-Container">
                 <div className="maintext_container">
-                  올해 가장 의미있었던 순간을 작성하기
+                  내가 집중했지만 내게 도움이 되지 않았던 일은 어떤 것인지
+                  작성하기
                 </div>
               </div>
               <div>
                 <div className="mainContent_Input">{ninthContent}</div>
                 <p className="text_num">{ninthContent.length}/200</p>
               </div>
-
               <div className="Content-Container">
                 <div className="maintext_container">
-                  올해 가장 중요했던 순간을 작성하기
+                  삶에서 더 하고 싶은 일은 어떤 것인지 작성하기
                 </div>
               </div>
               <div>
                 <div className="mainContent_Input">{tenthContent}</div>
                 <p className="text_num">{tenthContent.length}/200</p>
+              </div>
+              <div className="Content-Container">
+                <div className="maintext_container">
+                  삶에서 덜 하고 싶은 일은 어떤 것인지 작성하기
+                </div>
               </div>
               <div>
                 <div className="mainContent_Input">{eleventhContent}</div>
