@@ -205,7 +205,7 @@ const CompleteWritingWrap = styled.div`
   }
 
   .Image_container {
-    width: 290px;
+    width: 280px;
     height: 200px;
     border-radius: 16px;
     background-size: cover;
@@ -213,10 +213,12 @@ const CompleteWritingWrap = styled.div`
     position: relative;
     margin-left: 300px;
     border-radius: 16px;
+    object-fit: cover;
+    object-position: center;
   }
 
   .CompleteImg {
-    width: 290px;
+    width: 280px;
     height: 200px;
     border-radius: 16px;
     background: linear-gradient(
@@ -224,6 +226,8 @@ const CompleteWritingWrap = styled.div`
       rgba(18, 18, 18, 0) 68.25%,
       rgba(18, 18, 18, 0.35) 100%
     );
+    object-fit: cover;
+    object-position: center;
   }
 
   .user-name {
