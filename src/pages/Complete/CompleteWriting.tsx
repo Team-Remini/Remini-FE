@@ -69,6 +69,15 @@ function CompleteWriting() {
     fetchRetrospective();
   }, [id]);
 
+  //수정
+  useEffect(() => {
+    console.log("편집 모드 상태:", isEditMode);
+  }, [isEditMode]);
+
+  const handleEditClick = () => {
+    setIsEditMode(true);
+  };
+
   //type 값에 맞는 랜더링
   const renderContent = () => {
     if (!retrospective) {
@@ -77,25 +86,25 @@ function CompleteWriting() {
 
     switch (retrospective.type) {
       case "AAR":
-        return <AAR />;
+        return <AAR isEditMode={isEditMode} />;
       case "CSS":
-        return <Continue />;
+        return <Continue isEditMode={isEditMode} />;
       case "FIVE_F":
-        return <FiveF />;
+        return <FiveF isEditMode={isEditMode} />;
       case "FOUR_L":
-        return <FourL />;
+        return <FourL isEditMode={isEditMode} />;
       case "KPT":
-        return <KPT />;
+        return <KPT isEditMode={isEditMode} />;
       case "ORID":
-        return <ORID />;
+        return <ORID isEditMode={isEditMode} />;
       case "RESULT":
-        return <Performance />;
+        return <Performance isEditMode={isEditMode} />;
       case "PERSONAL":
-        return <Personal />;
+        return <Personal isEditMode={isEditMode} />;
       case "TIL":
-        return <TIL />;
+        return <TIL isEditMode={isEditMode} />;
       case "YWT":
-        return <YWT />;
+        return <YWT isEditMode={isEditMode} />;
       default:
         return <p>Unknown retrospective type</p>;
     }
@@ -153,15 +162,6 @@ function CompleteWriting() {
     setShowDeleteModal(true);
   };
 
-  // const closeModals = () => {
-  //   setShowShareModal(false);
-  //   setShowDeleteModal(false);
-  // };
-
-  const handleEditClick = () => {
-    setIsEditMode(true);
-  };
-
   return (
     <>
       <CompleteWritingWrap>
@@ -195,12 +195,6 @@ function CompleteWriting() {
           </div>
         </div>
         <div className="mainContent-container">{renderContent()}</div>
-        <div className="editButton-contaner">
-          {/*
-          <button className="cancelBtnn">취소</button>
-          <button className="completeEditBtn">확인</button>
-          */}
-        </div>
         <div className="empty-box">
           <br />
           <br />
