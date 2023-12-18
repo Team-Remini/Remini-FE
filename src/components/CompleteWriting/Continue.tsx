@@ -89,9 +89,7 @@ function CompleteWritingContinue() {
                   <p>우리가 무엇을 계속할 지에 대해 작성하기</p>
                 </div>
                 <div>
-                  <textarea className="mainContent_Input">
-                    {firstContent}
-                  </textarea>
+                  <div className="mainContent_Input">{firstContent}</div>
                   <p className="text_num">{firstContent.length}/200</p>
                 </div>
               </div>
