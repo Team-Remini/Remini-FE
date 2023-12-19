@@ -26,6 +26,7 @@ function CompleteWritingARR({ isEditMode }: isEditModeTypeProps) {
   const [retrospectiveData, setRetrospectiveData] = useState<DataType | null>(
     null
   );
+  const [editMode, setIsEditMode] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -89,7 +90,10 @@ function CompleteWritingARR({ isEditMode }: isEditModeTypeProps) {
     setIsEditMode(false);
   };
 
-  const renderContentInput = (content, setContent) => {
+  const renderContentInput = (
+    content: string,
+    setContent: React.Dispatch<React.SetStateAction<string>>
+  ) => {
     return isEditMode ? (
       <textarea
         className="mainContent_Input"

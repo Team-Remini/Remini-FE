@@ -27,6 +27,7 @@ function CompleteWritingFiveF({ isEditMode }: isEditModeTypeProps) {
   const [retrospectiveData, setRetrospectiveData] = useState<DataType | null>(
     null
   );
+  const [isEditMode, setIsEditMode] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
