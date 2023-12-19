@@ -26,7 +26,7 @@ export const Main: React.FC = () => {
 
   return (
     <MainWrap>
-      <p className="title">
+      <p className="title" data-aos="zoom-in">
         <span>Remini</span> : 맞춤 회고 유형 추천 및 가이드
       </p>
       <div className="font">
