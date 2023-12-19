@@ -26,7 +26,6 @@ function CompleteWritingARR({ isEditMode }: isEditModeTypeProps) {
   const [retrospectiveData, setRetrospectiveData] = useState<DataType | null>(
     null
   );
-  const [editMode, setIsEditMode] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -79,7 +78,6 @@ function CompleteWritingARR({ isEditMode }: isEditModeTypeProps) {
       console.log("수정 요청 성공:", response.data);
       alert("수정이 완료되었습니다!🥳");
       window.location.reload();
-      setIsEditMode(false);
     } catch (error) {
       console.error("수정 요청 실패:", error);
     }
@@ -87,7 +85,6 @@ function CompleteWritingARR({ isEditMode }: isEditModeTypeProps) {
 
   const handleCancel = () => {
     window.location.reload();
-    setIsEditMode(false);
   };
 
   const renderContentInput = (
