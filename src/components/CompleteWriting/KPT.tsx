@@ -6,6 +6,7 @@ import BasicProfile from "../../img/UI/basicProfile.png";
 import axios from "axios";
 import GuideLineTheeContent from "../../components/GuideLine/ThreeContent";
 import editbtn from "../../img/UI/edit.png";
+import { useNavigate } from "react-router-dom";
 
 type DataType = {
   createdDate: string;
@@ -20,6 +21,7 @@ interface isEditModeTypeProps {
 
 function CompleteWritingKPT({ isEditMode }: isEditModeTypeProps) {
   const { id } = useParams();
+  const navigate = useNavigate();
   const [firstContent, setFirstContent] = useState("");
   const [secondContent, setSecondContent] = useState("");
   const [thirdContent, setThirdContent] = useState("");
@@ -88,7 +90,8 @@ function CompleteWritingKPT({ isEditMode }: isEditModeTypeProps) {
         await uploadImage(response.data.uploadUrl);
       }
 
-      console.log("수정 요청 성공:", response.data);
+      const newId = response.data.reminiId;
+      navigate(`/complete-writing/${newId}`);
       alert("수정이 완료되었습니다!🥳");
       window.location.reload();
     } catch (error) {
@@ -132,7 +135,6 @@ function CompleteWritingKPT({ isEditMode }: isEditModeTypeProps) {
       });
 
       console.log("이미지 업로드 성공:", imageResponse);
-      // 추가적인 처리 로직
     } catch (error) {
       console.error("이미지 업로드 실패:", error);
     }
